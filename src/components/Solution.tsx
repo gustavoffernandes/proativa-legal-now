@@ -38,11 +38,11 @@ export function Solution() {
     <section id="solucao" className="py-20 sm:py-28 bg-surface">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-success">Solução</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
+          <p className="text-xs uppercase tracking-widest text-accent">Solução</p>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
             O Proativa faz o trabalho complexo por você.
           </h2>
-          <p className="mt-4 text-muted-foreground text-pretty">
+          <p className="mt-4 text-background/70 text-pretty">
             A única plataforma focada na metodologia Proart que entrega tudo que a auditoria exige.
           </p>
         </div>
