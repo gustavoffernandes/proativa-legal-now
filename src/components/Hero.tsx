@@ -36,7 +36,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-5 max-w-xl text-pretty text-base sm:text-lg text-muted-foreground"
+            className="mt-5 max-w-xl text-pretty text-base sm:text-lg text-muted-foreground text-justify sm:text-center mx-auto leading-relaxed"
           >
             A partir de maio de 2026, a Gestão de Riscos Psicossociais é
             obrigatória no PGR. O Proativa mapeia, analisa e gera relatórios
