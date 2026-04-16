@@ -29,14 +29,16 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "proativa" },
+      { name: "description", content: "Proativa helps businesses achieve NR-01 compliance for psychosocial risks with automated reporting." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "proativa" },
+      { property: "og:description", content: "Proativa helps businesses achieve NR-01 compliance for psychosocial risks with automated reporting." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "proativa" },
+      { name: "twitter:description", content: "Proativa helps businesses achieve NR-01 compliance for psychosocial risks with automated reporting." },
     ],
     links: [
       {
