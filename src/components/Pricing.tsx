@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Check, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { PlanId } from "@/lib/plans";
 
 type Plan = {
+  id: PlanId;
   name: string;
   desc: string;
   monthly: { from: string; now: string };
@@ -14,6 +17,7 @@ type Plan = {
 
 const plans: Plan[] = [
   {
+    id: "starter",
     name: "Starter",
     desc: "Pequenas empresas e consultores independentes.",
     monthly: { from: "R$ 69,90", now: "R$ 20,97" },
@@ -29,6 +33,7 @@ const plans: Plan[] = [
     ],
   },
   {
+    id: "professional",
     name: "Profissional",
     desc: "Empresas e consultorias SST em crescimento.",
     monthly: { from: "R$ 99,90", now: "R$ 29,97" },
@@ -45,6 +50,7 @@ const plans: Plan[] = [
     highlighted: true,
   },
   {
+    id: "enterprise",
     name: "Empresarial",
     desc: "Grandes operações, redes e consultorias.",
     monthly: { from: "R$ 199,90", now: "R$ 59,97" },
@@ -154,11 +160,17 @@ export function Pricing() {
                   </ul>
 
                   <Button
+                    asChild
                     className="mt-8 w-full"
                     variant={p.highlighted ? "default" : "outline"}
                     size="lg"
                   >
-                    Assinar {p.name}
+                    <Link
+                      to="/checkout"
+                      search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
+                    >
+                      Assinar {p.name}
+                    </Link>
                   </Button>
                 </div>
               );
@@ -219,11 +231,17 @@ export function Pricing() {
                 </ul>
 
                 <Button
+                  asChild
                   className="mt-8 w-full"
                   variant={p.highlighted ? "default" : "outline"}
                   size="lg"
                 >
-                  Assinar {p.name}
+                  <Link
+                    to="/checkout"
+                    search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
+                  >
+                    Assinar {p.name}
+                  </Link>
                 </Button>
               </div>
             );
