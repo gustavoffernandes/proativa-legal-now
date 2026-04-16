@@ -2,7 +2,7 @@ import { ShieldCheck, Lock } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">

@@ -60,8 +60,9 @@
   --background: oklch(0.965 0.018 105);          /* #f3f4e5 */
   --foreground: oklch(0.38 0.012 80);            /* #59554e */
 
-  --surface: oklch(0.93 0.012 105);              /* #e2e3d9 */
-  --surface-muted: oklch(0.91 0.012 105);
+  /* Surface — agora cinza-quente escuro (#595546). Texto sobre surface deve usar bg/foreground claros. */
+  --surface: oklch(0.38 0.012 80);
+  --surface-muted: oklch(0.34 0.012 80);
 
   --card: oklch(1 0 0);                          /* #ffffff */
   --card-foreground: oklch(0.38 0.012 80);
