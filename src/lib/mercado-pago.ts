@@ -1,12 +1,16 @@
 // ============================================================================
 // SERVER FUNCTION — Mercado Pago Checkout Pro
 // ----------------------------------------------------------------------------
-// Cria preferência no Mercado Pago E grava subscription PENDING vinculada
-// ao usuário autenticado. O webhook (futuro) atualizará para 'approved'.
+// 1) Valida o usuário a partir do accessToken (Supabase JWT) enviado no input
+// 2) Cria registro de subscription PENDING vinculado ao usuário
+// 3) Cria preferência no Mercado Pago com external_reference correlacionável
+// 4) Retorna init_point para o frontend redirecionar
+// ----------------------------------------------------------------------------
+// Webhook (futuro): /api/mercado-pago-webhook receberá notificação e atualizará
+// status da subscription para 'approved' usando mp_external_reference.
 // ============================================================================
 
 import { createServerFn } from "@tanstack/react-start";
-import { getRequestHeader } from "@tanstack/react-start/server";
 import { createClient } from "@supabase/supabase-js";
 import { getPlan, type BillingCycle } from "./plans";
 import { supabaseAdmin } from "@/integrations/supabase/admin.server";
@@ -17,46 +21,43 @@ export interface CheckoutInput {
   planId: string;
   cycle: BillingCycle;
   origin: string;
+  accessToken: string;
 }
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
   .inputValidator((input: unknown): CheckoutInput => {
     const i = input as Partial<CheckoutInput> | null;
-    if (!i?.planId || !i?.cycle || !i?.origin) {
-      throw new Error("planId, cycle e origin são obrigatórios.");
+    if (!i?.planId || !i?.cycle || !i?.origin || !i?.accessToken) {
+      throw new Error("planId, cycle, origin e accessToken são obrigatórios.");
     }
     if (i.cycle !== "monthly" && i.cycle !== "annual") {
       throw new Error("cycle deve ser 'monthly' ou 'annual'.");
     }
-    return { planId: i.planId, cycle: i.cycle, origin: i.origin };
+    return {
+      planId: i.planId,
+      cycle: i.cycle,
+      origin: i.origin,
+      accessToken: i.accessToken,
+    };
   })
   .handler(async ({ data }) => {
     const plan = getPlan(data.planId);
     if (!plan) throw new Error("Plano inválido.");
 
-    const accessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN;
-    if (!accessToken) {
-      throw new Error("MERCADO_PAGO_ACCESS_TOKEN não configurado.");
-    }
+    const mpToken = process.env.MERCADO_PAGO_ACCESS_TOKEN;
+    if (!mpToken) throw new Error("MERCADO_PAGO_ACCESS_TOKEN não configurado.");
 
-    // ----- 1) Identificar usuário autenticado a partir do JWT no header -----
-    const authHeader = getRequestHeader("authorization");
-    const accessJwt = authHeader?.replace(/^Bearer\s+/i, "");
-    if (!accessJwt) {
-      throw new Error("Você precisa estar logado para finalizar a compra.");
-    }
-    const supaUser = createClient(
-      process.env.SYSTEM_SUPABASE_URL!,
-      process.env.SYSTEM_SUPABASE_PUBLISHABLE_KEY!,
-      { global: { headers: { Authorization: `Bearer ${accessJwt}` } } },
+    // ---- 1) Valida usuário pelo JWT ----
+    const supaPub = createClient(
+      "https://pmoofkgrqcgtcrrgyzsu.supabase.co",
+      "sb_publishable_2eSpgen_FuENNYJbFVXhbw_62kNeZfs",
     );
-    const { data: userData, error: userErr } = await supaUser.auth.getUser(accessJwt);
+    const { data: userData, error: userErr } = await supaPub.auth.getUser(data.accessToken);
     if (userErr || !userData.user) {
       throw new Error("Sessão inválida. Faça login novamente.");
     }
     const user = userData.user;
 
-    // Profile (nome) — usado no payer
     const { data: profile } = await supabaseAdmin
       .from("profiles")
       .select("full_name, phone")
@@ -66,7 +67,7 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     const unitPrice = data.cycle === "annual" ? plan.price.annual : plan.price.monthly;
     const externalRef = crypto.randomUUID();
 
-    // ----- 2) Criar registro PENDING no banco ANTES de chamar o MP -----
+    // ---- 2) Subscription PENDING ----
     const { data: subRow, error: subErr } = await supabaseAdmin
       .from("subscriptions")
       .insert({
@@ -85,7 +86,7 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       throw new Error("Falha ao registrar a compra. Tente novamente.");
     }
 
-    // ----- 3) Criar preferência no Mercado Pago -----
+    // ---- 3) Cria preferência no Mercado Pago ----
     const preference = {
       items: [
         {
@@ -119,14 +120,13 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
       },
       auto_return: "approved",
-      // notification_url: `${data.origin}/api/mercado-pago-webhook`, // futuro
     };
 
     const res = await fetch(MP_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${mpToken}`,
       },
       body: JSON.stringify(preference),
     });
@@ -141,13 +141,12 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       throw new Error(json.message ?? `Falha ao criar preferência (HTTP ${res.status}).`);
     }
 
-    // Atualiza preference_id na subscription
     await supabaseAdmin
       .from("subscriptions")
       .update({ mp_preference_id: json.id })
       .eq("id", subRow.id);
 
-    const isTestToken = accessToken.startsWith("TEST-");
+    const isTestToken = mpToken.startsWith("TEST-");
     return {
       init_point:
         isTestToken && json.sandbox_init_point ? json.sandbox_init_point : json.init_point,
