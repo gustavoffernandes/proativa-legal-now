@@ -161,15 +161,26 @@ export const Route = createFileRoute("/api/mercado-pago-webhook")({
 
         const newStatus = mapMpStatusToDb(payment.status);
 
+        // ---- Lê metadata atual para preservar campos ----
+        const { data: existing } = await supabaseAdmin
+          .from("subscriptions")
+          .select("id, metadata")
+          .eq("mp_external_reference", externalRef)
+          .maybeSingle();
+
+        const prevMeta = (existing?.metadata ?? {}) as Record<string, unknown>;
+        const newMeta = {
+          ...prevMeta,
+          mp_payment_id: String(payment.id),
+          mp_payment_status: payment.status,
+          mp_payment_status_detail: payment.status_detail ?? null,
+          mp_payment_method: payment.payment_method_id ?? null,
+        };
+
         // ---- Atualiza subscription ----
         const { data: updated, error: updErr } = await supabaseAdmin
           .from("subscriptions")
-          .update({
-            status: newStatus,
-            mp_payment_id: String(payment.id),
-            mp_payment_status: payment.status,
-            mp_payment_status_detail: payment.status_detail ?? null,
-          })
+          .update({ status: newStatus, metadata: newMeta })
           .eq("mp_external_reference", externalRef)
           .select("id")
           .maybeSingle();
