@@ -120,8 +120,9 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
       },
       auto_return: "approved",
-      // Webhook: o MP envia notificações para essa URL após mudanças de status.
-      notification_url: `${data.origin}/api/mercado-pago-webhook`,
+      // Webhook: Edge Function do Supabase (independente da landing).
+      notification_url:
+        "https://pmoofkgrqcgtcrrgyzsu.supabase.co/functions/v1/mp-webhook",
     };
 
     const res = await fetch(MP_API, {
