@@ -149,9 +149,9 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         failure: `${data.origin}/checkout/erro?ref=${externalRef}`,
         pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
       },
-      // Webhook: Edge Function do Supabase (independente da landing).
+      // Webhook: Server Route na própria landing (TanStack Start).
       notification_url:
-        "https://pmoofkgrqcgtcrrgyzsu.supabase.co/functions/v1/mp-webhook",
+        "https://proativa-legal-now.lovable.app/api/mercado-pago-webhook",
     };
 
     const res = await fetch(MP_API, {
