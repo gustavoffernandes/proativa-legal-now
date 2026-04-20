@@ -18,6 +18,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckoutSucessoRouteImport } from './routes/checkout.sucesso'
 import { Route as CheckoutPendenteRouteImport } from './routes/checkout.pendente'
 import { Route as CheckoutErroRouteImport } from './routes/checkout.erro'
+import { Route as ApiMercadoPagoWebhookRouteImport } from './routes/api/mercado-pago-webhook'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
 
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -64,6 +65,11 @@ const CheckoutErroRoute = CheckoutErroRouteImport.update({
   path: '/checkout/erro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiMercadoPagoWebhookRoute = ApiMercadoPagoWebhookRouteImport.update({
+  id: '/api/mercado-pago-webhook',
+  path: '/api/mercado-pago-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedCheckoutRoute = AuthenticatedCheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
   '/checkout/sucesso': typeof CheckoutSucessoRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
   '/checkout/sucesso': typeof CheckoutSucessoRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
+  '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
   '/checkout/sucesso': typeof CheckoutSucessoRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/checkout'
+    | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
     | '/checkout/sucesso'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/checkout'
+    | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
     | '/checkout/sucesso'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/_authenticated/checkout'
+    | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
     | '/checkout/sucesso'
@@ -149,6 +161,7 @@ export interface RootRouteChildren {
   EsqueciSenhaRoute: typeof EsqueciSenhaRoute
   LoginRoute: typeof LoginRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  ApiMercadoPagoWebhookRoute: typeof ApiMercadoPagoWebhookRoute
   CheckoutErroRoute: typeof CheckoutErroRoute
   CheckoutPendenteRoute: typeof CheckoutPendenteRoute
   CheckoutSucessoRoute: typeof CheckoutSucessoRoute
@@ -219,6 +232,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutErroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/mercado-pago-webhook': {
+      id: '/api/mercado-pago-webhook'
+      path: '/api/mercado-pago-webhook'
+      fullPath: '/api/mercado-pago-webhook'
+      preLoaderRoute: typeof ApiMercadoPagoWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/checkout': {
       id: '/_authenticated/checkout'
       path: '/checkout'
@@ -248,6 +268,7 @@ const rootRouteChildren: RootRouteChildren = {
   EsqueciSenhaRoute: EsqueciSenhaRoute,
   LoginRoute: LoginRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  ApiMercadoPagoWebhookRoute: ApiMercadoPagoWebhookRoute,
   CheckoutErroRoute: CheckoutErroRoute,
   CheckoutPendenteRoute: CheckoutPendenteRoute,
   CheckoutSucessoRoute: CheckoutSucessoRoute,
@@ -255,3 +276,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
