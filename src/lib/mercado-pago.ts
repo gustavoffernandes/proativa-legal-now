@@ -113,13 +113,11 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         subscription_id: subRow.id,
         product: "proativa",
       },
-      statement_descriptor: "PROATIVA",
       back_urls: {
         success: `${data.origin}/checkout/sucesso?ref=${externalRef}`,
         failure: `${data.origin}/checkout/erro?ref=${externalRef}`,
         pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
       },
-      auto_return: "approved",
       // Webhook: Edge Function do Supabase (independente da landing).
       notification_url:
         "https://pmoofkgrqcgtcrrgyzsu.supabase.co/functions/v1/mp-webhook",
