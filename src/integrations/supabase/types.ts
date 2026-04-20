@@ -308,6 +308,9 @@ export type Database = {
           description: string | null
           features: Json
           id: string
+          max_companies: number
+          max_respondents: number
+          max_surveys_per_month: number
           max_users: number
           name: string
           price_annual: number
@@ -320,6 +323,9 @@ export type Database = {
           description?: string | null
           features?: Json
           id: string
+          max_companies?: number
+          max_respondents?: number
+          max_surveys_per_month?: number
           max_users?: number
           name: string
           price_annual?: number
@@ -332,6 +338,9 @@ export type Database = {
           description?: string | null
           features?: Json
           id?: string
+          max_companies?: number
+          max_respondents?: number
+          max_surveys_per_month?: number
           max_users?: number
           name?: string
           price_annual?: number
@@ -669,6 +678,10 @@ export type Database = {
           }
         | { Args: { _role: string; _user_id: string }; Returns: boolean }
       promote_to_admin: { Args: { _user_id: string }; Returns: undefined }
+      provision_subscription_admin: {
+        Args: { _subscription_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "user" | "company_user" | "super_admin"
