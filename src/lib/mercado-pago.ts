@@ -86,6 +86,26 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       throw new Error("Falha ao registrar a compra. Tente novamente.");
     }
 
+    // Quebra "Nome Completo" em first_name + last_name (MP recomenda).
+    const fullName = (profile?.full_name ?? "").trim();
+    const nameParts = fullName.split(/\s+/);
+    const firstName = nameParts[0] || undefined;
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : undefined;
+
+    // Normaliza telefone: extrai area_code (DDD) e number.
+    // Ex.: "+55 93 99975-0968" -> area_code "93", number "999750968"
+    let areaCode: string | undefined;
+    let phoneNumber: string | undefined;
+    if (profile?.phone) {
+      const digits = profile.phone.replace(/\D/g, "");
+      // Remove código do país "55" se presente.
+      const local = digits.startsWith("55") && digits.length > 11 ? digits.slice(2) : digits;
+      if (local.length >= 10) {
+        areaCode = local.slice(0, 2);
+        phoneNumber = local.slice(2);
+      }
+    }
+
     // ---- 3) Cria preferência no Mercado Pago ----
     const preference = {
       items: [
@@ -103,7 +123,11 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       ],
       payer: {
         email: user.email,
-        name: profile?.full_name ?? undefined,
+        ...(firstName ? { first_name: firstName } : {}),
+        ...(lastName ? { last_name: lastName } : {}),
+        ...(areaCode && phoneNumber
+          ? { phone: { area_code: areaCode, number: phoneNumber } }
+          : {}),
       },
       external_reference: externalRef,
       metadata: {
@@ -112,6 +136,13 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         user_id: user.id,
         subscription_id: subRow.id,
         product: "proativa",
+      },
+      // Métodos de pagamento — garante que cartão, pix e boleto fiquem habilitados
+      // e não sejam excluídos por algum default da conta.
+      payment_methods: {
+        excluded_payment_types: [],
+        excluded_payment_methods: [],
+        installments: 12,
       },
       back_urls: {
         success: `${data.origin}/checkout/sucesso?ref=${externalRef}`,
