@@ -33,6 +33,7 @@ function SignupPage() {
   const { redirect } = useSearch({ from: "/cadastro" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ fullName: "", email: "", phone: "", password: "" });
 
   function set<K extends keyof typeof form>(k: K) {
@@ -72,8 +73,16 @@ function SignupPage() {
 
     // Se já tem sessão (confirmação desativada no Supabase), segue direto.
     if (authData.session) {
+      setSuccess(true);
       setLoading(false);
-      navigate({ to: redirect ?? "/", search: {} as never });
+      // Pequeno delay para o usuário enxergar a confirmação visual.
+      setTimeout(() => {
+        if (redirect && redirect.startsWith("/")) {
+          window.location.href = redirect;
+        } else {
+          navigate({ to: "/", search: {} as never });
+        }
+      }, 800);
       return;
     }
 
@@ -86,11 +95,19 @@ function SignupPage() {
     setLoading(false);
     if (signInError) {
       setError(
-        "Conta criada, mas não foi possível entrar automaticamente. Tente fazer login.",
+        "Conta criada! Agora faça login com seu e-mail e senha.",
       );
+      setTimeout(() => navigate({ to: "/login", search: { redirect } as never }), 1500);
       return;
     }
-    navigate({ to: redirect ?? "/", search: {} as never });
+    setSuccess(true);
+    setTimeout(() => {
+      if (redirect && redirect.startsWith("/")) {
+        window.location.href = redirect;
+      } else {
+        navigate({ to: "/", search: {} as never });
+      }
+    }, 800);
   }
 
   return (
@@ -166,9 +183,15 @@ function SignupPage() {
               </div>
             )}
 
-            <Button type="submit" disabled={loading} size="lg" className="w-full">
+            {success && (
+              <div className="rounded-lg border border-success/40 bg-success/10 px-3 py-2 text-sm text-success-foreground">
+                ✓ Conta criada com sucesso! Redirecionando…
+              </div>
+            )}
+
+            <Button type="submit" disabled={loading || success} size="lg" className="w-full">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-              Criar conta
+              {success ? "Pronto!" : "Criar conta"}
             </Button>
           </form>
 
