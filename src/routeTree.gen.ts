@@ -19,6 +19,7 @@ import { Route as CheckoutSucessoRouteImport } from './routes/checkout.sucesso'
 import { Route as CheckoutPendenteRouteImport } from './routes/checkout.pendente'
 import { Route as CheckoutErroRouteImport } from './routes/checkout.erro'
 import { Route as ApiMercadoPagoWebhookRouteImport } from './routes/api/mercado-pago-webhook'
+import { Route as AuthenticatedPedidosRouteImport } from './routes/_authenticated/pedidos'
 import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
 
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -70,6 +71,11 @@ const ApiMercadoPagoWebhookRoute = ApiMercadoPagoWebhookRouteImport.update({
   path: '/api/mercado-pago-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedPedidosRoute = AuthenticatedPedidosRouteImport.update({
+  id: '/pedidos',
+  path: '/pedidos',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 const AuthenticatedCheckoutRoute = AuthenticatedCheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/pedidos': typeof AuthenticatedPedidosRoute
   '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/checkout': typeof AuthenticatedCheckoutRoute
+  '/pedidos': typeof AuthenticatedPedidosRoute
   '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
+  '/_authenticated/pedidos': typeof AuthenticatedPedidosRoute
   '/api/mercado-pago-webhook': typeof ApiMercadoPagoWebhookRoute
   '/checkout/erro': typeof CheckoutErroRoute
   '/checkout/pendente': typeof CheckoutPendenteRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/checkout'
+    | '/pedidos'
     | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
@@ -135,6 +145,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/checkout'
+    | '/pedidos'
     | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
@@ -148,6 +159,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/reset-password'
     | '/_authenticated/checkout'
+    | '/_authenticated/pedidos'
     | '/api/mercado-pago-webhook'
     | '/checkout/erro'
     | '/checkout/pendente'
@@ -239,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiMercadoPagoWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/pedidos': {
+      id: '/_authenticated/pedidos'
+      path: '/pedidos'
+      fullPath: '/pedidos'
+      preLoaderRoute: typeof AuthenticatedPedidosRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/_authenticated/checkout': {
       id: '/_authenticated/checkout'
       path: '/checkout'
@@ -251,10 +270,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteChildren {
   AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
+  AuthenticatedPedidosRoute: typeof AuthenticatedPedidosRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
+  AuthenticatedPedidosRoute: AuthenticatedPedidosRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
