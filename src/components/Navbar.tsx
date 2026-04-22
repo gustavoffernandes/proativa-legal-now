@@ -136,6 +136,11 @@ export function Navbar() {
                   <UserIcon className="h-3.5 w-3.5" />
                   {user.email}
                 </span>
+                <Button asChild size="sm" variant="ghost">
+                  <Link to="/pedidos">
+                    <Package className="h-4 w-4" /> Pedidos
+                  </Link>
+                </Button>
                 <Button size="sm" variant="ghost" onClick={() => signOut()} title="Sair">
                   <LogOut className="h-4 w-4" />
                   Sair
@@ -184,6 +189,11 @@ export function Navbar() {
                   <div className="px-2 py-2 text-xs text-muted-foreground border-t border-border mt-2">
                     {user.email}
                   </div>
+                  <Button asChild variant="outline" className="mt-2 w-full">
+                    <Link to="/pedidos" onClick={() => setOpen(false)}>
+                      <Package className="h-4 w-4" /> Meus pedidos
+                    </Link>
+                  </Button>
                   <Button
                     variant="outline"
                     className="mt-2 w-full"
@@ -205,6 +215,16 @@ export function Navbar() {
                   <Button asChild variant="outline" className="mt-3 w-full">
                     <Link to="/login" onClick={() => setOpen(false)}>
                       Entrar
+                    </Link>
+                  </Button>
+                  <Button asChild variant="ghost" className="mt-2 w-full">
+                    <Link to="/cadastro" onClick={() => setOpen(false)}>
+                      Cadastrar
+                    </Link>
+                  </Button>
+                  <Button asChild variant="ghost" className="mt-2 w-full">
+                    <Link to="/pedidos" onClick={() => setOpen(false)}>
+                      <Package className="h-4 w-4" /> Pedidos
                     </Link>
                   </Button>
                   <Button asChild className="mt-2 w-full">
