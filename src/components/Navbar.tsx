@@ -1,9 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, ShieldCheck, LogOut, User as UserIcon } from "lucide-react";
+import {
+  Menu,
+  X,
+  ShieldCheck,
+  LogOut,
+  User as UserIcon,
+  Package,
+  LogIn,
+  UserPlus,
+  ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/integrations/supabase/auth-context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const links = [
   { href: "#risco", label: "O Risco" },
@@ -37,12 +55,67 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <ShieldCheck className="h-4.5 w-4.5" strokeWidth={2.2} />
-            </span>
-            <span className="font-display text-xl tracking-tight text-foreground">Proativa</span>
-          </a>
+          <div className="flex items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border bg-card/60 px-2.5 text-sm text-foreground hover:bg-muted transition-colors"
+                  aria-label="Abrir menu"
+                >
+                  <Menu className="h-4 w-4" />
+                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-60">
+                <DropdownMenuLabel>Navegação</DropdownMenuLabel>
+                {links.map((l) => (
+                  <DropdownMenuItem key={l.href} asChild>
+                    <a href={l.href}>{l.label}</a>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Conta</DropdownMenuLabel>
+                {!loading && user ? (
+                  <>
+                    <DropdownMenuItem asChild>
+                      <Link to="/pedidos">
+                        <Package className="h-4 w-4" /> Meus pedidos
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onSelect={() => signOut()}>
+                      <LogOut className="h-4 w-4" /> Sair
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuItem asChild>
+                      <Link to="/login">
+                        <LogIn className="h-4 w-4" /> Entrar
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/cadastro">
+                        <UserPlus className="h-4 w-4" /> Cadastrar
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/pedidos">
+                        <Package className="h-4 w-4" /> Pedidos
+                      </Link>
+                    </DropdownMenuItem>
+                  </>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <a href="#top" className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <ShieldCheck className="h-4.5 w-4.5" strokeWidth={2.2} />
+              </span>
+              <span className="font-display text-xl tracking-tight text-foreground">Proativa</span>
+            </a>
+          </div>
 
           <nav className="hidden md:flex items-center gap-7">
             {links.map((l) => (
