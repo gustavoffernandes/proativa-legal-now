@@ -34,7 +34,13 @@ function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [form, setForm] = useState({ fullName: "", email: "", phone: "", password: "" });
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   function set<K extends keyof typeof form>(k: K) {
     return (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -172,6 +178,19 @@ function SignupPage() {
                 placeholder="Mínimo 8 caracteres"
                 value={form.password}
                 onChange={set("password")}
+                disabled={loading}
+                required
+              />
+            </div>
+            <div>
+              <Label htmlFor="confirmPassword">Confirme a senha</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                autoComplete="new-password"
+                placeholder="Repita a senha"
+                value={form.confirmPassword}
+                onChange={set("confirmPassword")}
                 disabled={loading}
                 required
               />
