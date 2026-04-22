@@ -60,7 +60,7 @@ const STATUS_LABEL: Record<Order["status"], string> = {
 function StatusBadge({ status }: { status: Order["status"] }) {
   const map = {
     approved: { Icon: CheckCircle2, klass: "bg-success/10 text-success border-success/30" },
-    pending: { Icon: Clock, klass: "bg-amber-500/10 text-amber-700 border-amber-500/30" },
+    pending: { Icon: Clock, klass: "bg-warning/10 text-warning-foreground border-warning/40" },
     rejected: { Icon: XCircle, klass: "bg-destructive/10 text-destructive border-destructive/30" },
     cancelled: { Icon: XCircle, klass: "bg-muted text-muted-foreground border-border" },
     refunded: { Icon: XCircle, klass: "bg-muted text-muted-foreground border-border" },
