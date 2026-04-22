@@ -282,7 +282,7 @@ function PedidosPage() {
                         )}
 
                         {order.status === "pending" && (
-                          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm">
+                          <div className="rounded-xl border border-warning/40 bg-warning/10 p-4 text-sm">
                             <p className="font-medium text-foreground">Aguardando confirmação do pagamento</p>
                             <p className="mt-1 text-muted-foreground">
                               Pagamentos via Pix podem levar alguns minutos. Assim que o Mercado
