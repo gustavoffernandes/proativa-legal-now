@@ -58,6 +58,28 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     }
     const user = userData.user;
 
+    // ---- 1.5) Regra de negócio: 1 plano por conta ----
+    // Bloqueia se já existir subscription APROVADA do mesmo plano para este usuário.
+    // (Pendentes não bloqueiam — usuário pode reabrir checkout do mesmo plano se
+    // o pagamento anterior ainda não confirmou.)
+    const { data: existing, error: existingErr } = await supabaseAdmin
+      .from("subscriptions")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("plan_id", plan.id)
+      .eq("status", "approved")
+      .limit(1)
+      .maybeSingle();
+    if (existingErr) {
+      console.error("[checkout] erro ao verificar duplicidade:", existingErr);
+      throw new Error("Não foi possível validar sua compra. Tente novamente.");
+    }
+    if (existing) {
+      throw new Error(
+        `Você já possui o plano ${plan.name} ativo nesta conta. Acesse "Meus pedidos" para gerenciar sua assinatura.`,
+      );
+    }
+
     const { data: profile } = await supabaseAdmin
       .from("profiles")
       .select("full_name, phone")

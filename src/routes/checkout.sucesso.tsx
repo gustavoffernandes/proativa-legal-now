@@ -105,14 +105,33 @@ function SuccessPage() {
           </dl>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button asChild className="flex-1">
-              <Link to="/login">
-                <LogIn className="h-4 w-4" /> Acessar minha conta
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="flex-1">
-              <Link to="/">Voltar para o site</Link>
-            </Button>
+            {data?.status === "approved" ? (
+              <>
+                <Button asChild className="flex-1">
+                  <a
+                    href="https://proativa-dashboard.lovable.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LogIn className="h-4 w-4" /> Acessar dashboard
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="flex-1">
+                  <Link to="/">Voltar para o site</Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button asChild className="flex-1">
+                  <Link to="/login">
+                    <LogIn className="h-4 w-4" /> Acessar minha conta
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="flex-1">
+                  <Link to="/">Voltar para o site</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {!ref && (
