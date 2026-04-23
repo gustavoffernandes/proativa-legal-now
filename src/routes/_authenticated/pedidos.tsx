@@ -337,6 +337,16 @@ function PedidosPage() {
                                 </div>
                               </div>
                             </div>
+
+                            <Button asChild className="mt-5 w-full sm:w-auto">
+                              <a
+                                href="https://proativa-dashboard.lovable.app"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Acessar dashboard
+                              </a>
+                            </Button>
                           </div>
                         )}
 
