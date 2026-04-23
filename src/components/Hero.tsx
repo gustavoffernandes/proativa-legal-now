@@ -68,7 +68,13 @@ export function Hero() {
               </a>
             </Button>
             <Button asChild size="lg" variant="ghost" className="w-full sm:w-auto">
-              <a href="#solucao">Ver o dashboard</a>
+              <a
+                href="https://proativa-dashboard.lovable.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver o dashboard
+              </a>
             </Button>
           </motion.div>
 
