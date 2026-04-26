@@ -8,11 +8,11 @@ import {
 const faqs = [
   {
     q: "A pesquisa tem validade jurídica?",
-    a: "Sim. Todo o fluxo do Proativa segue boas práticas de documentação exigidas pelo PGR e pela nova NR-01. Cada resposta é registrada com data, hora e versão da pesquisa, gerando uma trilha de evidências rastreável. Os relatórios em PDF e as exportações em Excel servem como prova formal de que sua empresa cumpriu a obrigação de mapear, analisar e tratar os riscos psicossociais — material aceito por auditorias internas, fiscais do trabalho e perícias judiciais.",
+    a: "Sim. Todo o fluxo do SSTudo segue boas práticas de documentação exigidas pelo PGR e pela nova NR-01. Cada resposta é registrada com data, hora e versão da pesquisa, gerando uma trilha de evidências rastreável. Os relatórios em PDF e as exportações em Excel servem como prova formal de que sua empresa cumpriu a obrigação de mapear, analisar e tratar os riscos psicossociais — material aceito por auditorias internas, fiscais do trabalho e perícias judiciais.",
   },
   {
     q: "Como vocês garantem o anonimato dos colaboradores?",
-    a: "O Proativa separa a identidade do respondente dos dados de resposta desde o momento da coleta. Aplicamos os princípios da LGPD com agregação mínima — resultados só são exibidos quando há respondentes suficientes para impedir reidentificação por cargo, setor ou GHE. Nenhum gestor consegue ver a resposta individual de uma pessoa específica, apenas indicadores coletivos. Isso protege o colaborador e blinda a empresa contra acusações de retaliação.",
+    a: "O SSTudo separa a identidade do respondente dos dados de resposta desde o momento da coleta. Aplicamos os princípios da LGPD com agregação mínima — resultados só são exibidos quando há respondentes suficientes para impedir reidentificação por cargo, setor ou GHE. Nenhum gestor consegue ver a resposta individual de uma pessoa específica, apenas indicadores coletivos. Isso protege o colaborador e blinda a empresa contra acusações de retaliação.",
   },
   {
     q: "O sistema serve para clínicas de SST e consultorias?",

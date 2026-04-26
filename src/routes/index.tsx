@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Proativa — NR-01 Riscos Psicossociais | PGR sem planilhas" },
+      { title: "SSTudo — NR-01 Riscos Psicossociais | PGR sem planilhas" },
       {
         name: "description",
         content:
@@ -25,15 +25,15 @@ export const Route = createFileRoute("/")({
         content:
           "NR-01, riscos psicossociais, PGR, saúde mental no trabalho, SST, metodologia Proart, conformidade trabalhista, burnout ocupacional, gestão de riscos",
       },
-      { name: "author", content: "Proativa" },
+      { name: "author", content: "SSTudo" },
       { name: "robots", content: "index, follow" },
       { name: "language", content: "pt-BR" },
       { name: "theme-color", content: "#59554e" },
 
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:site_name", content: "Proativa" },
-      { property: "og:title", content: "Proativa — Conformidade NR-01 sem planilhas" },
+      { property: "og:site_name", content: "SSTudo" },
+      { property: "og:title", content: "SSTudo — Conformidade NR-01 sem planilhas" },
       {
         property: "og:description",
         content:
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
       },
 
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Proativa — Conformidade NR-01 sem planilhas" },
+      { name: "twitter:title", content: "SSTudo — Conformidade NR-01 sem planilhas" },
       {
         name: "twitter:description",
         content:
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              name: "Proativa",
+              name: "SSTudo",
               url: "https://proativa.app",
               description:
                 "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
@@ -80,7 +80,7 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "SoftwareApplication",
-              name: "Proativa",
+              name: "SSTudo",
               applicationCategory: "BusinessApplication",
               operatingSystem: "Web",
               offers: {
@@ -105,7 +105,7 @@ export const Route = createFileRoute("/")({
                 },
                 {
                   "@type": "Question",
-                  name: "Como o Proativa garante o anonimato dos colaboradores?",
+                  name: "Como o SSTudo garante o anonimato dos colaboradores?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:

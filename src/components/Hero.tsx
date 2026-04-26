@@ -39,7 +39,7 @@ export function Hero() {
             className="mt-5 max-w-xl text-pretty text-base sm:text-lg text-muted-foreground text-justify sm:text-center mx-auto leading-relaxed"
           >
             A partir de maio de 2026, a Gestão de Riscos Psicossociais é
-            obrigatória no PGR. O Proativa mapeia, analisa e gera relatórios
+            obrigatória no PGR. O SSTudo mapeia, analisa e gera relatórios
             prontos — sem planilhas, sem improviso.
           </motion.p>
 

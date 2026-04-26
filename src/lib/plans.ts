@@ -1,5 +1,5 @@
 // ============================================================================
-// CATÁLOGO DE PLANOS — Proativa
+// CATÁLOGO DE PLANOS — SSTudo
 // ----------------------------------------------------------------------------
 // Fonte única de verdade dos planos no FRONT. Os mesmos valores estão na
 // tabela `public.plans` no Supabase. Sempre que alterar preço/feature/limite,

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/checkout/pendente")({
   validateSearch: (s: Record<string, unknown>): Search => ({ ref: s.ref as string | undefined }),
   head: () => ({
     meta: [
-      { title: "Pagamento pendente — Proativa" },
+      { title: "Pagamento pendente — SSTudo" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

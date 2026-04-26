@@ -17,7 +17,7 @@ export const Route = createFileRoute("/checkout/erro")({
   validateSearch: (s: Record<string, unknown>): Search => ({ ref: s.ref as string | undefined }),
   head: () => ({
     meta: [
-      { title: "Pagamento não aprovado — Proativa" },
+      { title: "Pagamento não aprovado — SSTudo" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

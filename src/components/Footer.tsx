@@ -10,7 +10,7 @@ export function Footer() {
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-background text-foreground">
                 <ShieldCheck className="h-4.5 w-4.5" strokeWidth={2.2} />
               </span>
-              <span className="font-display text-xl text-background">Proativa</span>
+              <span className="font-display text-xl text-background">SSTudo</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-background/65">
               Gestão de Riscos Psicossociais com metodologia Proart. Prepare-se para a NR-01 antes de 26/05/2026.
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-background/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-background/60">
-          <p>© 2026 Proativa. Todos os direitos reservados.</p>
+          <p>© 2026 SSTudo. Todos os direitos reservados.</p>
           <p>CNPJ: 12.345.678/0001-90</p>
         </div>
       </div>
