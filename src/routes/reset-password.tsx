@@ -15,8 +15,8 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Nova senha — Proativa" },
-      { name: "description", content: "Defina uma nova senha para sua conta Proativa." },
+      { title: "Nova senha — SSTudo" },
+      { name: "description", content: "Defina uma nova senha para sua conta SSTudo." },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -83,7 +83,7 @@ function ResetPasswordPage() {
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <ShieldCheck className="h-5 w-5" strokeWidth={2.2} />
           </span>
-          <span className="font-display text-2xl text-foreground">Proativa</span>
+          <span className="font-display text-2xl text-foreground">SSTudo</span>
         </Link>
 
         <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-[var(--shadow-soft)]">

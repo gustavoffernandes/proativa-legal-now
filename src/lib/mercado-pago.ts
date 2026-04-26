@@ -133,7 +133,7 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       items: [
         {
           id: `${plan.id}-${data.cycle}`,
-          title: `Proativa — Plano ${plan.name} (${
+          title: `SSTudo — Plano ${plan.name} (${
             data.cycle === "annual" ? "Anual" : "Mensal"
           })`,
           description: plan.description,

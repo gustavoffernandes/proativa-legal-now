@@ -30,14 +30,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Proativa — NR-01 Riscos Psicossociais" },
+      { title: "SSTudo — NR-01 Riscos Psicossociais" },
       {
         name: "description",
         content:
           "Plataforma para conformidade NR-01: gestão de Riscos Psicossociais com metodologia Proart, relatórios prontos para o PGR.",
       },
-      { name: "author", content: "Proativa" },
-      { property: "og:title", content: "Proativa — Conformidade NR-01" },
+      { name: "author", content: "SSTudo" },
+      { property: "og:title", content: "SSTudo — Conformidade NR-01" },
       {
         property: "og:description",
         content:
@@ -45,7 +45,7 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Proativa" },
+      { name: "twitter:title", content: "SSTudo" },
       { name: "twitter:description", content: "Conformidade NR-01 sem planilhas." },
     ],
     links: [{ rel: "stylesheet", href: appCss }],

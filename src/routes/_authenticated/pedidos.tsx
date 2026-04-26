@@ -28,8 +28,8 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/_authenticated/pedidos")({
   head: () => ({
     meta: [
-      { title: "Meus pedidos — Proativa" },
-      { name: "description", content: "Acompanhe o status dos seus pedidos Proativa." },
+      { title: "Meus pedidos — SSTudo" },
+      { name: "description", content: "Acompanhe o status dos seus pedidos SSTudo." },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -298,7 +298,7 @@ function PedidosPage() {
                               acesso
                             </h4>
                             <p className="mt-1 text-xs text-muted-foreground">
-                              Use estes dados para entrar na dashboard do Proativa.
+                              Use estes dados para entrar na dashboard do SSTudo.
                             </p>
 
                             <div className="mt-4 space-y-3">

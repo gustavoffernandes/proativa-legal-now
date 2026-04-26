@@ -81,7 +81,7 @@ export function Pricing() {
             Conformidade com condição exclusiva.
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Garanta o Proativa agora e construa o histórico de prevenção antes da NR-01 entrar em vigor.
+            Garanta o SSTudo agora e construa o histórico de prevenção antes da NR-01 entrar em vigor.
           </p>
 
           <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">

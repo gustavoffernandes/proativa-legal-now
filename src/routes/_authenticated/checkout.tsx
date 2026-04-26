@@ -23,8 +23,8 @@ export const Route = createFileRoute("/_authenticated/checkout")({
   }),
   head: () => ({
     meta: [
-      { title: "Checkout — Proativa" },
-      { name: "description", content: "Finalize sua assinatura do Proativa com segurança via Mercado Pago." },
+      { title: "Checkout — SSTudo" },
+      { name: "description", content: "Finalize sua assinatura do SSTudo com segurança via Mercado Pago." },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

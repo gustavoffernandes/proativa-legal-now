@@ -2,7 +2,7 @@ const quotes = [
   {
     name: "Mariana Costa",
     role: "Diretora de RH · Indústria de autopeças",
-    text: "Economizamos semanas de tabulação e evitamos um processo trabalhista grave usando os planos de ação do Proativa.",
+    text: "Economizamos semanas de tabulação e evitamos um processo trabalhista grave usando os planos de ação do SSTudo.",
   },
   {
     name: "Ricardo Almeida",
