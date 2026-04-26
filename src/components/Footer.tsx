@@ -38,15 +38,13 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-widest text-background">Contato</p>
             <ul className="mt-4 space-y-2.5 text-sm text-background/65">
-              <li><a href="mailto:contato@magoweb.com.br" className="hover:text-background">contato@magoweb.com.br</a></li>
-              <li><a href="tel:+5567992875364" className="hover:text-background">(67) 99287-5364</a></li>
+              <li><a href="mailto:sstudo.oficial@gmail.com" className="hover:text-background">sstudo.oficial@gmail.com</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-background/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-background/60">
           <p>© 2026 SSTudo. Todos os direitos reservados.</p>
-          <p>CNPJ: 12.345.678/0001-90</p>
         </div>
       </div>
     </footer>

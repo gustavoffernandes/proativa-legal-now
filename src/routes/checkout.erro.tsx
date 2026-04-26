@@ -98,7 +98,7 @@ function ErrorPage() {
             <Link to="/">Tentar novamente</Link>
           </Button>
           <Button asChild variant="outline">
-            <a href="mailto:contato@proativa.app">Falar com o suporte</a>
+            <a href="mailto:sstudo.oficial@gmail.com">Falar com o suporte</a>
           </Button>
         </div>
       </div>

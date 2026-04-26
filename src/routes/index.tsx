@@ -71,8 +71,7 @@ export const Route = createFileRoute("/")({
                 "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+55-67-99287-5364",
-                email: "contato@magoweb.com.br",
+                email: "sstudo.oficial@gmail.com",
                 contactType: "sales",
                 areaServed: "BR",
                 availableLanguage: ["Portuguese"],

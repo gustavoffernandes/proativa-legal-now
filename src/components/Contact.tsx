@@ -3,7 +3,7 @@
 // ============================================================================
 
 import { useState, type FormEvent } from "react";
-import { Loader2, CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
+import { Loader2, CheckCircle2, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -66,19 +66,8 @@ export function Contact() {
               </span>
               <div>
                 <p className="text-sm font-medium text-foreground">E-mail</p>
-                <a href="mailto:contato@magoweb.com.br" className="text-sm text-muted-foreground hover:text-foreground">
-                  contato@magoweb.com.br
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
-                <Phone className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-sm font-medium text-foreground">Telefone</p>
-                <a href="tel:+5567992875364" className="text-sm text-muted-foreground hover:text-foreground">
-                  (67) 99287-5364
+                <a href="mailto:sstudo.oficial@gmail.com" className="text-sm text-muted-foreground hover:text-foreground">
+                  sstudo.oficial@gmail.com
                 </a>
               </div>
             </div>
