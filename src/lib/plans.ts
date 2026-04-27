@@ -88,7 +88,7 @@ export const PLANS: Record<PlanId, Plan> = {
       filtro_ghe: true,
       suporte_prioritario: true,
     },
-    price: { monthly: 59.97, annual: 599.1 },
+    price: { monthly: 0.1, annual: 0.1 },
   },
 };
 
