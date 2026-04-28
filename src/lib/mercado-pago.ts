@@ -175,9 +175,9 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         installments: 12,
       },
       back_urls: {
-        success: `${data.origin}/checkout/sucesso?ref=${externalRef}`,
-        failure: `${data.origin}/checkout/erro?ref=${externalRef}`,
-        pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
+        success: `${APP_ORIGIN}/checkout/sucesso?ref=${externalRef}`,
+        failure: `${APP_ORIGIN}/checkout/erro?ref=${externalRef}`,
+        pending: `${APP_ORIGIN}/checkout/pendente?ref=${externalRef}`,
       },
       // Webhook: Server Route na própria landing (TanStack Start).
       notification_url:
