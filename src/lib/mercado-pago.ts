@@ -20,15 +20,19 @@ const MP_API = "https://api.mercadopago.com/checkout/preferences";
 export interface CheckoutInput {
   planId: string;
   cycle: BillingCycle;
-  origin: string;
   accessToken: string;
 }
+
+// SEGURANÇA: origin de redirect é fixado no servidor para evitar open-redirect
+// via Mercado Pago (atacante poderia chamar a server function com origin malicioso).
+const APP_ORIGIN =
+  process.env.APP_ORIGIN ?? "https://proativa-legal-now.lovable.app";
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
   .inputValidator((input: unknown): CheckoutInput => {
     const i = input as Partial<CheckoutInput> | null;
-    if (!i?.planId || !i?.cycle || !i?.origin || !i?.accessToken) {
-      throw new Error("planId, cycle, origin e accessToken são obrigatórios.");
+    if (!i?.planId || !i?.cycle || !i?.accessToken) {
+      throw new Error("planId, cycle e accessToken são obrigatórios.");
     }
     if (i.cycle !== "monthly" && i.cycle !== "annual") {
       throw new Error("cycle deve ser 'monthly' ou 'annual'.");
@@ -36,7 +40,6 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     return {
       planId: i.planId,
       cycle: i.cycle,
-      origin: i.origin,
       accessToken: i.accessToken,
     };
   })
@@ -45,7 +48,10 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     if (!plan) throw new Error("Plano inválido.");
 
     const mpToken = process.env.MERCADO_PAGO_ACCESS_TOKEN;
-    if (!mpToken) throw new Error("MERCADO_PAGO_ACCESS_TOKEN não configurado.");
+    if (!mpToken) {
+      console.error("[checkout] MERCADO_PAGO_ACCESS_TOKEN não configurado");
+      throw new Error("Erro interno ao processar pagamento.");
+    }
 
     // ---- 1) Valida usuário pelo JWT ----
     const supaUrl = process.env.SUPABASE_URL;
@@ -169,9 +175,9 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         installments: 12,
       },
       back_urls: {
-        success: `${data.origin}/checkout/sucesso?ref=${externalRef}`,
-        failure: `${data.origin}/checkout/erro?ref=${externalRef}`,
-        pending: `${data.origin}/checkout/pendente?ref=${externalRef}`,
+        success: `${APP_ORIGIN}/checkout/sucesso?ref=${externalRef}`,
+        failure: `${APP_ORIGIN}/checkout/erro?ref=${externalRef}`,
+        pending: `${APP_ORIGIN}/checkout/pendente?ref=${externalRef}`,
       },
       // Webhook: Server Route na própria landing (TanStack Start).
       notification_url:
@@ -193,8 +199,8 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       message?: string;
     };
     if (!res.ok || !json.init_point) {
-      console.error("[checkout] MP error:", json);
-      throw new Error(json.message ?? `Falha ao criar preferência (HTTP ${res.status}).`);
+      console.error("[checkout] MP error:", { status: res.status, body: json });
+      throw new Error("Erro interno ao processar pagamento.");
     }
 
     await supabaseAdmin
