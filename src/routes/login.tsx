@@ -13,9 +13,19 @@ import { loginSchema } from "@/lib/validations";
 
 type Search = { redirect?: string };
 
+// SEGURANÇA: aceita apenas paths internos relativos (mesma origem) para
+// impedir open-redirect (ex.: ?redirect=https://evil.com).
+function sanitizeRedirect(value: unknown): string | undefined {
+  if (typeof value !== "string" || value.length === 0) return undefined;
+  // precisa começar com "/" e NÃO pode ser "//..." (protocolo-relativo) nem "/\..."
+  if (!value.startsWith("/")) return undefined;
+  if (value.startsWith("//") || value.startsWith("/\\")) return undefined;
+  return value;
+}
+
 export const Route = createFileRoute("/login")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    redirect: typeof s.redirect === "string" ? s.redirect : undefined,
+    redirect: sanitizeRedirect(s.redirect),
   }),
   head: () => ({
     meta: [

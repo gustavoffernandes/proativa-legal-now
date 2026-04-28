@@ -89,7 +89,6 @@ function SuccessPage() {
               label="Valor"
               value={typeof data?.amount === "number" ? formatBRL(data.amount) : "—"}
             />
-            <Row label="E-mail" value={data?.user_email ?? "—"} />
             <Row
               label="Status"
               value={

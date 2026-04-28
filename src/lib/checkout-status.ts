@@ -19,7 +19,6 @@ export interface CheckoutStatusOutput {
   plan_name: string | null;
   cycle: "monthly" | "annual" | null;
   amount: number | null;
-  user_email: string | null;
 }
 
 export const getCheckoutStatus = createServerFn({ method: "POST" })
@@ -31,9 +30,12 @@ export const getCheckoutStatus = createServerFn({ method: "POST" })
     return { ref: i.ref };
   })
   .handler(async ({ data }): Promise<CheckoutStatusOutput> => {
+    // SEGURANÇA: NÃO retornamos PII (e-mail, user_id) — somente dados do plano.
+    // O `ref` aparece em URL e poderia vazar via histórico/referer, então
+    // qualquer campo sensível foi removido da resposta.
     const { data: sub } = await supabaseAdmin
       .from("subscriptions")
-      .select("status, plan_id, cycle, amount, user_id, metadata")
+      .select("status, plan_id, cycle, amount, metadata")
       .eq("mp_external_reference", data.ref)
       .maybeSingle();
 
@@ -44,14 +46,7 @@ export const getCheckoutStatus = createServerFn({ method: "POST" })
         plan_name: null,
         cycle: null,
         amount: null,
-        user_email: null,
       };
-    }
-
-    let user_email: string | null = null;
-    if (sub.user_id) {
-      const { data: u } = await supabaseAdmin.auth.admin.getUserById(sub.user_id);
-      user_email = u.user?.email ?? null;
     }
 
     const meta = (sub.metadata ?? {}) as Record<string, unknown>;
@@ -71,6 +66,5 @@ export const getCheckoutStatus = createServerFn({ method: "POST" })
       plan_name,
       cycle: normalizedCycle,
       amount: typeof sub.amount === "number" ? sub.amount : null,
-      user_email,
     };
   });
