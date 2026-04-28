@@ -20,15 +20,19 @@ const MP_API = "https://api.mercadopago.com/checkout/preferences";
 export interface CheckoutInput {
   planId: string;
   cycle: BillingCycle;
-  origin: string;
   accessToken: string;
 }
+
+// SEGURANÇA: origin de redirect é fixado no servidor para evitar open-redirect
+// via Mercado Pago (atacante poderia chamar a server function com origin malicioso).
+const APP_ORIGIN =
+  process.env.APP_ORIGIN ?? "https://proativa-legal-now.lovable.app";
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
   .inputValidator((input: unknown): CheckoutInput => {
     const i = input as Partial<CheckoutInput> | null;
-    if (!i?.planId || !i?.cycle || !i?.origin || !i?.accessToken) {
-      throw new Error("planId, cycle, origin e accessToken são obrigatórios.");
+    if (!i?.planId || !i?.cycle || !i?.accessToken) {
+      throw new Error("planId, cycle e accessToken são obrigatórios.");
     }
     if (i.cycle !== "monthly" && i.cycle !== "annual") {
       throw new Error("cycle deve ser 'monthly' ou 'annual'.");
@@ -36,7 +40,6 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     return {
       planId: i.planId,
       cycle: i.cycle,
-      origin: i.origin,
       accessToken: i.accessToken,
     };
   })
