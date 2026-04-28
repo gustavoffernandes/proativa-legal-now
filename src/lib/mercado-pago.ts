@@ -48,10 +48,12 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     if (!mpToken) throw new Error("MERCADO_PAGO_ACCESS_TOKEN não configurado.");
 
     // ---- 1) Valida usuário pelo JWT ----
-    const supaPub = createClient(
-      "https://pmoofkgrqcgtcrrgyzsu.supabase.co",
-      "sb_publishable_2eSpgen_FuENNYJbFVXhbw_62kNeZfs",
-    );
+    const supaUrl = process.env.SUPABASE_URL;
+    const supaAnon = process.env.SUPABASE_PUBLISHABLE_KEY;
+    if (!supaUrl || !supaAnon) {
+      throw new Error("Configuração do Supabase ausente no servidor.");
+    }
+    const supaPub = createClient(supaUrl, supaAnon);
     const { data: userData, error: userErr } = await supaPub.auth.getUser(data.accessToken);
     if (userErr || !userData.user) {
       throw new Error("Sessão inválida. Faça login novamente.");
