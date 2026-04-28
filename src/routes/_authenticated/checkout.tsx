@@ -66,7 +66,6 @@ function CheckoutPage() {
         data: {
           planId: planId!,
           cycle: cycle!,
-          origin: window.location.origin,
           accessToken,
         },
       });
