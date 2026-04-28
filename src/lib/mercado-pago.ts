@@ -48,7 +48,10 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     if (!plan) throw new Error("Plano inválido.");
 
     const mpToken = process.env.MERCADO_PAGO_ACCESS_TOKEN;
-    if (!mpToken) throw new Error("MERCADO_PAGO_ACCESS_TOKEN não configurado.");
+    if (!mpToken) {
+      console.error("[checkout] MERCADO_PAGO_ACCESS_TOKEN não configurado");
+      throw new Error("Erro interno ao processar pagamento.");
+    }
 
     // ---- 1) Valida usuário pelo JWT ----
     const supaUrl = process.env.SUPABASE_URL;
