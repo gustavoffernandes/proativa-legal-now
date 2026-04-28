@@ -199,8 +199,8 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
       message?: string;
     };
     if (!res.ok || !json.init_point) {
-      console.error("[checkout] MP error:", json);
-      throw new Error(json.message ?? `Falha ao criar preferência (HTTP ${res.status}).`);
+      console.error("[checkout] MP error:", { status: res.status, body: json });
+      throw new Error("Erro interno ao processar pagamento.");
     }
 
     await supabaseAdmin
