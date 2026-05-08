@@ -25,8 +25,15 @@ export interface CheckoutInput {
 
 // SEGURANÇA: origin de redirect é fixado no servidor para evitar open-redirect
 // via Mercado Pago (atacante poderia chamar a server function com origin malicioso).
-const APP_ORIGIN =
-  process.env.APP_ORIGIN ?? "https://proativa-legal-now.lovable.app";
+// Também tratamos o domínio legado como inválido para não continuar gerando
+// preferências com callback para a URL antiga após a troca para vendas.sstudo.com.br.
+const DEFAULT_APP_ORIGIN = "https://vendas.sstudo.com.br";
+const LEGACY_APP_ORIGIN = "https://proativa-legal-now.lovable.app";
+const rawAppOrigin = process.env.APP_ORIGIN?.trim();
+const APP_ORIGIN = (
+  !rawAppOrigin || rawAppOrigin === LEGACY_APP_ORIGIN ? DEFAULT_APP_ORIGIN : rawAppOrigin
+).replace(/\/+$/, "");
+const MP_WEBHOOK_URL = new URL("/api/mercado-pago-webhook", APP_ORIGIN).toString();
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
   .inputValidator((input: unknown): CheckoutInput => {
@@ -180,8 +187,7 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         pending: `${APP_ORIGIN}/checkout/pendente?ref=${externalRef}`,
       },
       // Webhook: Server Route na própria landing (TanStack Start).
-      notification_url:
-        "https://proativa-legal-now.lovable.app/api/mercado-pago-webhook",
+      notification_url: MP_WEBHOOK_URL,
     };
 
     const res = await fetch(MP_API, {
