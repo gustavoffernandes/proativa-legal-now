@@ -24,16 +24,19 @@ export interface CheckoutInput {
 }
 
 // SEGURANÇA: origin de redirect é fixado no servidor para evitar open-redirect
-// via Mercado Pago (atacante poderia chamar a server function com origin malicioso).
-// Também tratamos o domínio legado como inválido para não continuar gerando
-// preferências com callback para a URL antiga após a troca para vendas.sstudo.com.br.
-const DEFAULT_APP_ORIGIN = "https://vendas.sstudo.com.br";
-const LEGACY_APP_ORIGIN = "https://proativa-legal-now.lovable.app";
-const rawAppOrigin = process.env.APP_ORIGIN?.trim();
-const APP_ORIGIN = (
-  !rawAppOrigin || rawAppOrigin === LEGACY_APP_ORIGIN ? DEFAULT_APP_ORIGIN : rawAppOrigin
-).replace(/\/+$/, "");
-const MP_WEBHOOK_URL = new URL("/api/mercado-pago-webhook", APP_ORIGIN).toString();
+// via Mercado Pago. Domínios antigos são tratados como inválidos para não
+// gerar preferências com callbacks para URLs que não são mais oficiais.
+const DEFAULT_APP_ORIGIN = "https://sstudo.com.br";
+const LEGACY_APP_ORIGINS = new Set([
+  "https://proativa-legal-now.lovable.app",
+  "https://vendas.sstudo.com.br",
+]);
+
+function getAppOrigin(): string {
+  const rawAppOrigin = process.env.APP_ORIGIN?.trim().replace(/\/+$/, "");
+  if (!rawAppOrigin || LEGACY_APP_ORIGINS.has(rawAppOrigin)) return DEFAULT_APP_ORIGIN;
+  return rawAppOrigin;
+}
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
   .inputValidator((input: unknown): CheckoutInput => {
@@ -51,6 +54,8 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
     };
   })
   .handler(async ({ data }) => {
+    const appOrigin = getAppOrigin();
+    const mpWebhookUrl = new URL("/api/mercado-pago-webhook", appOrigin).toString();
     const plan = getPlan(data.planId);
     if (!plan) throw new Error("Plano inválido.");
 
@@ -182,12 +187,12 @@ export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
         installments: 12,
       },
       back_urls: {
-        success: `${APP_ORIGIN}/checkout/sucesso?ref=${externalRef}`,
-        failure: `${APP_ORIGIN}/checkout/erro?ref=${externalRef}`,
-        pending: `${APP_ORIGIN}/checkout/pendente?ref=${externalRef}`,
+        success: `${appOrigin}/checkout/sucesso?ref=${externalRef}`,
+        failure: `${appOrigin}/checkout/erro?ref=${externalRef}`,
+        pending: `${appOrigin}/checkout/pendente?ref=${externalRef}`,
       },
       // Webhook: Server Route na própria landing (TanStack Start).
-      notification_url: MP_WEBHOOK_URL,
+      notification_url: mpWebhookUrl,
     };
 
     const res = await fetch(MP_API, {
