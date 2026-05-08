@@ -107,11 +107,7 @@ function SuccessPage() {
             {data?.status === "approved" ? (
               <>
                 <Button asChild className="flex-1">
-                  <a
-                    href="https://proativa-dashboard.lovable.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://dashboard.sstudo.com.br" target="_blank" rel="noopener noreferrer">
                     <LogIn className="h-4 w-4" /> Acessar dashboard
                   </a>
                 </Button>

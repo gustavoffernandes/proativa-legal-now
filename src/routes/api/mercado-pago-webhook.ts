@@ -1,10 +1,10 @@
 // ============================================================================
 // SERVER ROUTE — Webhook Mercado Pago (na própria landing)
 // ----------------------------------------------------------------------------
-// URL final: https://proativa-legal-now.lovable.app/api/mercado-pago-webhook
+// URL final: https://sstudo.com.br/api/mercado-pago-webhook
 //
 // Configuração no painel do Mercado Pago (Suas integrações → Webhooks):
-//   1) URL: https://proativa-legal-now.lovable.app/api/mercado-pago-webhook
+//   1) URL: https://sstudo.com.br/api/mercado-pago-webhook
 //   2) Eventos: marcar apenas "Pagamentos" (payment)
 //   3) Copie a "Chave secreta" gerada e salve como secret MP_WEBHOOK_SECRET
 //
