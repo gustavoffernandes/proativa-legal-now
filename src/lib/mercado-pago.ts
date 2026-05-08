@@ -30,12 +30,13 @@ const DEFAULT_APP_ORIGIN = "https://sstudo.com.br";
 const LEGACY_APP_ORIGINS = new Set([
   "https://proativa-legal-now.lovable.app",
   "https://vendas.sstudo.com.br",
+  "https://dashboard.sstudo.com.br",
 ]);
 
 function getAppOrigin(): string {
   const rawAppOrigin = process.env.APP_ORIGIN?.trim().replace(/\/+$/, "");
   if (!rawAppOrigin || LEGACY_APP_ORIGINS.has(rawAppOrigin)) return DEFAULT_APP_ORIGIN;
-  return rawAppOrigin;
+  return rawAppOrigin === DEFAULT_APP_ORIGIN ? rawAppOrigin : DEFAULT_APP_ORIGIN;
 }
 
 export const createMercadoPagoCheckout = createServerFn({ method: "POST" })
