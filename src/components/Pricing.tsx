@@ -245,14 +245,15 @@ export function Pricing() {
                     Assinar {p.name}
                   </Link>
                 </Button>
+                {annual && (
+                  <p className="mt-2 text-center text-[11px] text-muted-foreground leading-snug">
+                    Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
+                  </p>
+                )}
               </div>
             );
           })}
         </div>
-
-        <p className="mt-8 text-center text-xs text-muted-foreground">
-          Promoção limitada — 91% das licenças com desconto máximo já foram pré-reservadas.
-        </p>
       </div>
     </section>
   );
