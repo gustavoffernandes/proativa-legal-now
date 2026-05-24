@@ -54,7 +54,7 @@ export const PLANS: Record<PlanId, Plan> = {
       filtro_ghe: false,
       suporte_prioritario: false,
     },
-    price: { monthly: 0.1, annual: 0.1 },
+    price: { monthly: 20.7, annual: 207.0 },
   },
   professional: {
     id: "professional",
@@ -71,7 +71,7 @@ export const PLANS: Record<PlanId, Plan> = {
       filtro_ghe: true,
       suporte_prioritario: false,
     },
-    price: { monthly: 0.1, annual: 0.1 },
+    price: { monthly: 29.7, annual: 297.0 },
   },
   enterprise: {
     id: "enterprise",
@@ -88,7 +88,7 @@ export const PLANS: Record<PlanId, Plan> = {
       filtro_ghe: true,
       suporte_prioritario: true,
     },
-    price: { monthly: 0.1, annual: 0.1 },
+    price: { monthly: 59.7, annual: 597.0 },
   },
 };
 
