@@ -54,8 +54,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="mt-6 max-w-xl text-balance font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-foreground"
             >
-              A nova NR-01 vai multar quem ignorar a{" "}
-              <span className="italic text-primary">saúde mental</span>.
+              A nova NR-01 vai multar quem ignorar a <span className="italic text-primary">saúde mental</span>.
             </motion.h1>
 
             <motion.p
@@ -64,9 +63,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.12 }}
               className="mt-5 max-w-lg text-pretty text-base sm:text-lg text-muted-foreground leading-relaxed"
             >
-              A partir de maio de 2026, a Gestão de Riscos Psicossociais é
-              obrigatória no PGR. O SSTudo mapeia, analisa e gera relatórios
-              prontos — sem planilhas, sem improviso.
+              A partir de maio de 2026, a Gestão de Riscos Psicossociais é obrigatória no PGR. O SSTudo mapeia, analisa
+              e gera relatórios prontos — sem planilhas, sem improviso.
             </motion.p>
 
             <motion.div
@@ -75,9 +73,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 flex flex-col items-start gap-3"
             >
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                Vigência em
-              </p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Vigência em</p>
               <Countdown />
             </motion.div>
 
@@ -105,7 +101,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 1 }}
             className="w-full"
           >
             <HeroAnimation />
