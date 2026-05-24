@@ -169,6 +169,11 @@ export function Pricing() {
                       Assinar {p.name}
                     </Link>
                   </Button>
+                  {annual && (
+                    <p className="mt-2 text-center text-[11px] text-muted-foreground leading-snug">
+                      Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
+                    </p>
+                  )}
                 </div>
               );
             })}
