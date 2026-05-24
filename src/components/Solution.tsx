@@ -35,7 +35,7 @@ const features = [
 
 export function Solution() {
   return (
-    <section id="solucao" className="py-20 sm:py-28 bg-surface">
+    <section id="solucao" className="py-20 sm:py-28 bg-primary">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-widest text-accent">Solução</p>
