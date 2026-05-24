@@ -38,8 +38,8 @@
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
 
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-soft: 0 1px 2px oklch(0.2 0.04 240 / 0.04), 0 8px 24px oklch(0.2 0.04 240 / 0.06);
   --shadow-elevated: 0 2px 4px oklch(0.2 0.04 240 / 0.06), 0 24px 48px -12px oklch(0.2 0.04 240 / 0.12);
@@ -48,62 +48,53 @@
 :root {
   --radius: 0.875rem;
 
-  /* Paleta:
-     #ffffff  white
-     #a1c1be  sage / verde-azulado suave
-     #59554e  warm dark gray (texto/primary)
-     #f3f4e5  cream (background)
-     #e2e3d9  cream-muted (surface)
+  /* Paleta SSTudo:
+     #003785  azul primário (brand)
+     #2d4b9d  azul alternância (surface)
+     #ffffff  branco
   */
 
-  /* Base — cream suave */
-  --background: oklch(0.965 0.018 105);          /* #f3f4e5 */
-  --foreground: oklch(0.38 0.012 80);            /* #59554e */
+  --background: #ffffff;
+  --foreground: #0f172a;
 
-  /* Surface — agora cinza-quente escuro (#595546). Texto sobre surface deve usar bg/foreground claros. */
-  --surface: oklch(0.38 0.012 80);
-  --surface-muted: oklch(0.34 0.012 80);
+  --surface: #2d4b9d;
+  --surface-muted: #003785;
 
-  --card: oklch(1 0 0);                          /* #ffffff */
-  --card-foreground: oklch(0.38 0.012 80);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.38 0.012 80);
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
 
-  /* Primary — warm dark gray (autoridade calma) */
-  --primary: oklch(0.38 0.012 80);               /* #59554e */
-  --primary-foreground: oklch(0.98 0.012 105);
+  --primary: #003785;
+  --primary-foreground: #ffffff;
 
-  /* Secondary — cream-muted */
-  --secondary: oklch(0.93 0.012 105);
-  --secondary-foreground: oklch(0.38 0.012 80);
+  --secondary: #f3f4f6;
+  --secondary-foreground: #0f172a;
 
-  --muted: oklch(0.93 0.012 105);
-  --muted-foreground: oklch(0.5 0.012 80);
+  --muted: #f3f4f6;
+  --muted-foreground: #5b6478;
 
-  /* Accent — sage (#a1c1be) */
-  --accent: oklch(0.78 0.028 195);
-  --accent-foreground: oklch(0.32 0.015 80);
+  --accent: #2d4b9d;
+  --accent-foreground: #ffffff;
 
-  /* Success — sage mais saturado */
-  --success: oklch(0.66 0.05 190);
-  --success-foreground: oklch(0.99 0 0);
+  --success: #10b981;
+  --success-foreground: #ffffff;
 
-  /* Warning — terracota suave (contraste com a paleta fria) */
-  --warning: oklch(0.74 0.11 55);
-  --warning-foreground: oklch(0.28 0.04 60);
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
 
-  --destructive: oklch(0.55 0.18 30);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.86 0.012 105);
-  --input: oklch(0.88 0.012 105);
-  --ring: oklch(0.78 0.028 195);
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #003785;
 
-  --chart-1: oklch(0.38 0.012 80);
-  --chart-2: oklch(0.78 0.028 195);
-  --chart-3: oklch(0.66 0.05 190);
-  --chart-4: oklch(0.74 0.11 55);
-  --chart-5: oklch(0.55 0.04 80);
+  --chart-1: #003785;
+  --chart-2: #2d4b9d;
+  --chart-3: #10b981;
+  --chart-4: #f59e0b;
+  --chart-5: #5b6478;
 }
 
 .dark {
@@ -141,12 +132,11 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -157,13 +147,13 @@
 
   .bg-grid {
     background-image:
-      linear-gradient(to right, oklch(0.38 0.012 80 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.38 0.012 80 / 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgb(0 55 133 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 55 133 / 0.06) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .gradient-radial-soft {
-    background: radial-gradient(ellipse at top, oklch(0.78 0.028 195 / 0.35), transparent 60%);
+    background: radial-gradient(ellipse at top, rgb(45 75 157 / 0.18), transparent 60%);
   }
 
   /* Mobile snap carousel */
