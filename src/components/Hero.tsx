@@ -1,67 +1,79 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck, BarChart3, Brain, FileCheck2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Countdown } from "./Countdown";
-import heroGif from "@/assets/hero-apresentacao.gif";
 
-// GIF com pausa entre loops: toca uma vez (~1.3s) e congela no último frame por ~4s
-function LoopingGif() {
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [snapshot, setSnapshot] = useState<string | null>(null);
-  const [showGif, setShowGif] = useState(true);
-  const [bump, setBump] = useState(0);
-  const PLAY_MS = 1300;
-  const PAUSE_MS = 4000;
-
-  useEffect(() => {
-    if (showGif) {
-      const t = setTimeout(() => {
-        const img = imgRef.current;
-        if (img && img.naturalWidth > 0) {
-          try {
-            const c = document.createElement("canvas");
-            c.width = img.naturalWidth;
-            c.height = img.naturalHeight;
-            const ctx = c.getContext("2d");
-            if (ctx) {
-              ctx.drawImage(img, 0, 0);
-              setSnapshot(c.toDataURL("image/png"));
-            }
-          } catch {
-            /* sem snapshot, segue tocando */
-          }
-        }
-        setShowGif(false);
-      }, PLAY_MS);
-      return () => clearTimeout(t);
-    } else {
-      const t = setTimeout(() => {
-        setShowGif(true);
-        setBump((b) => b + 1);
-      }, PAUSE_MS);
-      return () => clearTimeout(t);
-    }
-  }, [showGif, bump]);
-
+// Animação leve e integrada ao site — sem GIF/vídeo pesado.
+function HeroAnimation() {
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-elevated)]">
-      {showGif || !snapshot ? (
-        <img
-          key={bump}
-          ref={imgRef}
-          src={`${heroGif}?v=${bump}`}
-          alt="Apresentação animada SSTudo"
-          crossOrigin="anonymous"
-          className="block w-full h-auto"
-        />
-      ) : (
-        <img
-          src={snapshot}
-          alt="Apresentação SSTudo"
-          className="block w-full h-auto"
-        />
-      )}
+    <div className="relative mx-auto w-full max-w-md aspect-square">
+      <motion.div
+        aria-hidden
+        className="absolute inset-6 rounded-[2rem] bg-primary/20 blur-3xl"
+        animate={{ opacity: [0.45, 0.7, 0.45], scale: [0.95, 1.02, 0.95] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <motion.div
+        className="absolute inset-8 rounded-2xl border border-border bg-card/90 backdrop-blur p-5 shadow-[var(--shadow-elevated)]"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span className="h-2 w-2 rounded-full bg-success" />
+          PGR · Riscos Psicossociais
+        </div>
+        <div className="mt-3 text-sm font-semibold text-foreground">
+          Conformidade NR-01
+        </div>
+
+        <div className="mt-4 space-y-2.5">
+          {[78, 92, 64].map((w, i) => (
+            <div key={i} className="space-y-1">
+              <div className="flex justify-between text-[10px] text-muted-foreground">
+                <span>{["Estresse", "Liderança", "Carga"][i]}</span>
+                <span>{w}%</span>
+              </div>
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                <motion.div
+                  className="h-full rounded-full bg-primary"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${w}%` }}
+                  transition={{ duration: 1.2, delay: 0.3 + i * 0.2, ease: "easeOut" }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4 flex items-end gap-1.5 h-12">
+          {[40, 65, 50, 78, 60, 88, 72].map((h, i) => (
+            <motion.div
+              key={i}
+              className="flex-1 rounded-sm bg-primary/70"
+              initial={{ height: 0 }}
+              animate={{ height: `${h}%` }}
+              transition={{ duration: 0.6, delay: 0.5 + i * 0.08, ease: "easeOut" }}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {[
+        { Icon: ShieldCheck, pos: "top-2 left-2", delay: 0 },
+        { Icon: Brain, pos: "top-4 right-0", delay: 0.6 },
+        { Icon: BarChart3, pos: "bottom-6 left-0", delay: 1.2 },
+        { Icon: FileCheck2, pos: "bottom-2 right-4", delay: 1.8 },
+      ].map(({ Icon, pos, delay }, i) => (
+        <motion.div
+          key={i}
+          className={`absolute ${pos} h-11 w-11 rounded-xl border border-border bg-card shadow-md flex items-center justify-center text-primary`}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay }}
+        >
+          <Icon className="h-5 w-5" />
+        </motion.div>
+      ))}
     </div>
   );
 }
