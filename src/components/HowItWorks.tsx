@@ -21,7 +21,7 @@ export function HowItWorks() {
     <section id="como" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-accent-foreground/70">Como funciona</p>
+          <p className="text-xs uppercase tracking-widest text-primary">Como funciona</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
             Três passos. Zero complicação.
           </h2>
