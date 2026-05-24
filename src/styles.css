@@ -147,13 +147,13 @@
 
   .bg-grid {
     background-image:
-      linear-gradient(to right, oklch(0.38 0.012 80 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.38 0.012 80 / 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgb(0 55 133 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 55 133 / 0.06) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .gradient-radial-soft {
-    background: radial-gradient(ellipse at top, oklch(0.78 0.028 195 / 0.35), transparent 60%);
+    background: radial-gradient(ellipse at top, rgb(45 75 157 / 0.18), transparent 60%);
   }
 
   /* Mobile snap carousel */
