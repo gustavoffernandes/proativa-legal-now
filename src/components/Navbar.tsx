@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import {
   Menu,
   X,
-  ShieldCheck,
   LogOut,
   User as UserIcon,
   Package,
@@ -14,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/integrations/supabase/auth-context";
+import logoSstudo from "@/assets/logo-sstudo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
