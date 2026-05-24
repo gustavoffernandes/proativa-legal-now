@@ -71,9 +71,12 @@ export function Pricing() {
     <section id="precos" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-warning/15 text-warning-foreground px-3 py-1 text-xs font-medium">
-            🔥 Lançamento — 70% OFF
+          <span className="inline-flex items-center rounded-full border border-warning/40 bg-warning/10 text-warning-foreground px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+            <span className="text-warning">Lançamento</span>
+            <span className="mx-2 h-3 w-px bg-warning/40" />
+            <span className="text-foreground">70% OFF</span>
           </span>
+
           <h2 className="mt-4 font-display text-3xl sm:text-4xl text-foreground text-balance">
             Conformidade com condição exclusiva.
           </h2>
