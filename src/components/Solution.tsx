@@ -38,7 +38,7 @@ export function Solution() {
     <section id="solucao" className="py-20 sm:py-28 bg-primary">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-accent">Solução</p>
+          <p className="text-xs uppercase tracking-widest text-background/70">Solução</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
             O SSTudo faz o trabalho complexo por você.
           </h2>
