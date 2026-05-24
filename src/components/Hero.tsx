@@ -158,7 +158,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="w-full"
           >
-            <LoopingGif />
+            <HeroAnimation />
           </motion.div>
         </div>
       </div>
