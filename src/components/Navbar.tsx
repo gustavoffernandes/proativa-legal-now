@@ -110,10 +110,7 @@ export function Navbar() {
             </DropdownMenu>
 
             <a href="#top" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <ShieldCheck className="h-4.5 w-4.5" strokeWidth={2.2} />
-              </span>
-              <span className="font-display text-xl tracking-tight text-foreground">SSTudo</span>
+              <img src={logoSstudo} alt="SSTudo" className="h-8 w-auto" />
             </a>
           </div>
 
