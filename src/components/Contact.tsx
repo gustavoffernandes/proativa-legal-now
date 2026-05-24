@@ -66,8 +66,8 @@ export function Contact() {
               </span>
               <div>
                 <p className="text-sm font-medium text-foreground">E-mail</p>
-                <a href="mailto:sstudo.oficial@gmail.com" className="text-sm text-muted-foreground hover:text-foreground">
-                  sstudo.oficial@gmail.com
+                <a href="mailto:contato@sstudo.com.br" className="text-sm text-muted-foreground hover:text-foreground">
+                  contato@sstudo.com.br
                 </a>
               </div>
             </div>
