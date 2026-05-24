@@ -14,9 +14,16 @@ import { signupSchema } from "@/lib/validations";
 
 type Search = { redirect?: string };
 
+function sanitizeRedirect(value: unknown): string | undefined {
+  if (typeof value !== "string" || value.length === 0) return undefined;
+  if (!value.startsWith("/")) return undefined;
+  if (value.startsWith("//") || value.startsWith("/\\")) return undefined;
+  return value;
+}
+
 export const Route = createFileRoute("/cadastro")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    redirect: typeof s.redirect === "string" ? s.redirect : undefined,
+    redirect: sanitizeRedirect(s.redirect),
   }),
   head: () => ({
     meta: [
