@@ -159,7 +159,7 @@ export function Contact() {
               </form>
             )}
           </div>
-        </div>
+        </FadeInView>
       </div>
     </section>
   );
