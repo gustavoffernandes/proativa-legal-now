@@ -1,3 +1,5 @@
+import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
+
 const steps = [
   {
     n: "01",
@@ -20,36 +22,42 @@ export function HowItWorks() {
   return (
     <section id="como" className="py-20 sm:py-28 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-primary">Como funciona</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
-            Três passos. Zero complicação.
-          </h2>
-        </div>
+        <FadeInView>
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-widest text-primary">Como funciona</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
+              Três passos. Zero complicação.
+            </h2>
+          </div>
+        </FadeInView>
 
         {/* Mobile: carrossel */}
         <div className="mt-10 sm:hidden -mx-4">
           <div className="snap-row">
-            {steps.map((s) => (
-              <div key={s.n} className="snap-item rounded-2xl border border-border bg-card p-6">
-                <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
-                <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              </div>
+            {steps.map((s, i) => (
+              <FadeInView key={s.n} delay={i * 0.08} className="snap-item">
+                <div className="rounded-2xl border border-border bg-card p-6 h-full">
+                  <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
+                  <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                </div>
+              </FadeInView>
             ))}
           </div>
         </div>
 
         {/* Desktop: grid */}
-        <ol className="mt-12 hidden sm:grid gap-6 sm:grid-cols-3">
+        <FadeInStagger className="mt-12 hidden sm:grid gap-6 sm:grid-cols-3" staggerDelay={0.12}>
           {steps.map((s) => (
-            <li key={s.n} className="relative rounded-2xl border border-border bg-card p-6 sm:p-8">
-              <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
-              <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </li>
+            <FadeInItem key={s.n}>
+              <li className="relative rounded-2xl border border-border bg-card p-6 sm:p-8 h-full">
+                <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
+                <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              </li>
+            </FadeInItem>
           ))}
-        </ol>
+        </FadeInStagger>
       </div>
     </section>
   );

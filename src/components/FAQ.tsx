@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
 
 const faqs = [
   {
@@ -40,25 +41,29 @@ export function FAQ() {
   return (
     <section id="faq" className="py-20 sm:py-28 bg-primary">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="text-center">
+        <FadeInView className="text-center">
           <p className="text-xs uppercase tracking-widest text-background/70">FAQ</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
             Perguntas frequentes
           </h2>
-        </div>
+        </FadeInView>
 
-        <Accordion type="single" collapsible className="mt-10 w-full">
-          {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`} className="border-border">
-              <AccordionTrigger className="text-left font-medium text-background hover:no-underline">
-                {f.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-background/75 leading-relaxed text-justify">
-                {f.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <FadeInStagger className="mt-10 w-full" staggerDelay={0.06}>
+          <Accordion type="single" collapsible>
+            {faqs.map((f, i) => (
+              <FadeInItem key={i}>
+                <AccordionItem value={`item-${i}`} className="border-border">
+                  <AccordionTrigger className="text-left font-medium text-background hover:no-underline">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-background/75 leading-relaxed text-justify">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </FadeInItem>
+            ))}
+          </Accordion>
+        </FadeInStagger>
       </div>
     </section>
   );
