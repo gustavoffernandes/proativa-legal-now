@@ -1,4 +1,4 @@
-const quotes = [
+import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
   {
     name: "Mariana Costa",
     role: "Diretora de RH · Indústria de autopeças",
