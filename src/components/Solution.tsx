@@ -39,38 +39,44 @@ export function Solution() {
     <section id="solucao" className="py-20 sm:py-28 bg-primary">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-background/70">Solução</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
-            O SSTudo faz o trabalho complexo por você.
-          </h2>
-          <p className="mt-4 text-background/70 text-pretty">
-            A única plataforma focada na metodologia Proart que entrega tudo que a auditoria exige.
-          </p>
+          <FadeInView>
+            <p className="text-xs uppercase tracking-widest text-background/70">Solução</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
+              O SSTudo faz o trabalho complexo por você.
+            </h2>
+            <p className="mt-4 text-background/70 text-pretty">
+              A única plataforma focada na metodologia Proart que entrega tudo que a auditoria exige.
+            </p>
+          </FadeInView>
         </div>
 
         {/* Mobile: carrossel lateral */}
         <div className="mt-10 sm:hidden -mx-4">
           <div className="snap-row">
-            {features.map((f) => (
-              <div key={f.title} className="snap-item rounded-2xl border border-border bg-card p-6">
-                <f.icon className="h-5 w-5 text-primary" strokeWidth={2} />
-                <h3 className="mt-5 font-display text-lg text-foreground">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-              </div>
+            {features.map((f, i) => (
+              <FadeInView key={f.title} delay={i * 0.08} className="snap-item">
+                <div className="rounded-2xl border border-border bg-card p-6 h-full">
+                  <f.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                  <h3 className="mt-5 font-display text-lg text-foreground">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                </div>
+              </FadeInView>
             ))}
           </div>
         </div>
 
         {/* Desktop: grid */}
-        <div className="mt-12 hidden sm:grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <FadeInStagger className="mt-12 hidden sm:grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <div key={f.title} className="bg-card p-6 sm:p-8">
-              <f.icon className="h-5 w-5 text-primary" strokeWidth={2} />
-              <h3 className="mt-5 font-display text-lg text-foreground">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-            </div>
+            <FadeInItem key={f.title}>
+              <div className="bg-card p-6 sm:p-8 h-full">
+                <f.icon className="h-5 w-5 text-primary" strokeWidth={2} />
+                <h3 className="mt-5 font-display text-lg text-foreground">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+              </div>
+            </FadeInItem>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </section>
   );
