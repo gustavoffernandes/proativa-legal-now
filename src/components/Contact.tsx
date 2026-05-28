@@ -46,7 +46,7 @@ export function Contact() {
   return (
     <section id="contato" className="py-20 sm:py-28 bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <FadeInView className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground">
             Fale conosco
           </span>
@@ -56,9 +56,9 @@ export function Contact() {
           <p className="mt-4 text-muted-foreground">
             Envie sua mensagem e retornamos em até 1 dia útil.
           </p>
-        </div>
+        </FadeInView>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-5">
+        <FadeInView delay={0.15} className="mt-12 grid gap-8 lg:grid-cols-5">
           {/* Info lateral */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-start gap-3">
