@@ -1,4 +1,4 @@
-const steps = [
+import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
   {
     n: "01",
     title: "Dispare a pesquisa anônima",
