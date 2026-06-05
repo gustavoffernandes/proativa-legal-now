@@ -54,7 +54,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="mt-6 max-w-xl text-balance font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-foreground"
             >
-              A nova NR-01 vai multar quem ignorar a <span className="italic text-primary">saúde mental</span>.
+              A atualização da NR-01 vai multar quem ignorar a <span className="italic text-primary">saúde mental</span>.
             </motion.h1>
 
             <motion.p
