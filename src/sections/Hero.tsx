@@ -2,6 +2,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Countdown } from "@/components/Countdown";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 // WebP animado: roda 1x (loop=1 no arquivo) e congela no último frame.
