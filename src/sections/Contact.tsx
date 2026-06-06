@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema } from "@/lib/validations";
-import { FadeInView } from "./FadeInView";
+import { FadeInView } from "@/components/FadeInView";
 
 export function Contact() {
   const [loading, setLoading] = useState(false);

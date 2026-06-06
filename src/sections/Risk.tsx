@@ -1,5 +1,5 @@
 import { Gavel, TrendingUp, Receipt } from "lucide-react";
-import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
+import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 const items = [
   {

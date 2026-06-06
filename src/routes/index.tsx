@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { Risk } from "@/components/Risk";
-import { Solution } from "@/components/Solution";
-import { HowItWorks } from "@/components/HowItWorks";
-import { SocialProof } from "@/components/SocialProof";
-import { Pricing } from "@/components/Pricing";
-import { FAQ } from "@/components/FAQ";
-import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { Hero } from "@/sections/Hero";
+import { Risk } from "@/sections/Risk";
+import { Solution } from "@/sections/Solution";
+import { HowItWorks } from "@/sections/HowItWorks";
+import { SocialProof } from "@/sections/SocialProof";
+import { Pricing } from "@/sections/Pricing";
+import { FAQ } from "@/sections/FAQ";
+import { Contact } from "@/sections/Contact";
 
 export const Route = createFileRoute("/")({
   component: Index,

@@ -203,18 +203,9 @@ export const Route = createFileRoute("/api/mercado-pago-webhook")({
             console.error("[mp-webhook] erro ao provisionar admin:", rpcErr);
             return new Response("provision error", { status: 500, headers: CORS });
           }
-          console.log("[mp-webhook] usuário provisionado como admin:", {
-            subscription_id: existing.id,
-            user_id: existing.user_id,
-            plan_id: existing.plan_id,
-          });
         }
 
-        console.log("[mp-webhook] subscription atualizada:", {
-          id: existing.id,
-          status: newStatus,
-          payment_id: payment.id,
-        });
+
 
         return new Response("ok", { status: 200, headers: CORS });
       },
