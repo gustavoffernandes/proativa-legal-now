@@ -1,13 +1,19 @@
 // ============================================================================
 // AuthProvider — expõe sessão Supabase para toda a app via contexto React
 // ----------------------------------------------------------------------------
-// IMPORTANTE: o listener onAuthStateChange é configurado ANTES do getSession
-// inicial, conforme padrão recomendado para evitar race condition.
+// O cliente Supabase é importado dinamicamente dentro do useEffect para que
+// @supabase/supabase-js não entre no bundle inicial da landing page.
 // ============================================================================
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { Session, User } from "@supabase/supabase-js";
-import { supabase } from "./client";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import type { Session, SupabaseClient, User } from "@supabase/supabase-js";
 
 interface AuthContextValue {
   session: Session | null;
@@ -26,22 +32,34 @@ const AuthContext = createContext<AuthContextValue>({
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const clientRef = useRef<SupabaseClient | null>(null);
 
   useEffect(() => {
-    // 1) Listener PRIMEIRO (síncrono, não awaita nada lá dentro)
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
-      setLoading(false);
-    });
+    let cancelled = false;
+    let unsub: (() => void) | undefined;
 
-    // 2) Sessão atual depois
-    supabase.auth.getSession().then(({ data }) => {
+    (async () => {
+      const { supabase } = await import("./client");
+      if (cancelled) return;
+      clientRef.current = supabase;
+
+      // 1) Listener PRIMEIRO
+      const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+        setSession(newSession);
+        setLoading(false);
+      });
+      unsub = () => sub.subscription.unsubscribe();
+
+      // 2) Sessão atual depois
+      const { data } = await supabase.auth.getSession();
+      if (cancelled) return;
       setSession(data.session);
       setLoading(false);
-    });
+    })();
 
     return () => {
-      sub.subscription.unsubscribe();
+      cancelled = true;
+      unsub?.();
     };
   }, []);
 
@@ -52,7 +70,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user: session?.user ?? null,
         loading,
         signOut: async () => {
-          await supabase.auth.signOut();
+          const client =
+            clientRef.current ?? (await import("./client")).supabase;
+          await client.auth.signOut();
         },
       }}
     >
