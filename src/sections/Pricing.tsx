@@ -28,7 +28,6 @@ const plans: Plan[] = [
       { label: "300 respondentes", included: true },
       { label: "Relatório PDF + Excel", included: true },
       { label: "Matriz de Risco P×S", included: false },
-      { label: "Filtros GHE/Setor", included: false },
       { label: "Suporte dedicado", included: false },
     ],
   },
