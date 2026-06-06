@@ -42,11 +42,20 @@ export const Route = createFileRoute("/")({
         content:
           "Plataforma com metodologia Proart para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
       },
+      { property: "og:url", content: "https://sstudo.com.br/" },
+      { property: "og:image", content: OG_IMAGE_URL },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SSTudo — Conformidade NR-01 sem planilhas" },
       {
         name: "twitter:description",
+        content:
+          "Mapeie, analise e gere relatórios de Riscos Psicossociais prontos para o PGR. 70% OFF no lançamento.",
+      },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+    ],
+    links: [
+      { rel: "canonical", href: "https://sstudo.com.br/" },
         content:
           "Mapeie, analise e gere relatórios de Riscos Psicossociais prontos para o PGR. 70% OFF no lançamento.",
       },
