@@ -2,7 +2,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Countdown } from "@/components/Countdown";
-import heroAnim from "@/assets/hero-apresentacao.webp";
+
 
 // WebP animado: roda 1x (loop=1 no arquivo) e congela no último frame.
 // Fundo já é transparente, integrado ao site.
@@ -15,18 +15,10 @@ function HeroAnimation() {
         animate={{ opacity: [0.4, 0.65, 0.4], scale: [0.95, 1.03, 0.95] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
-      <motion.img
-        src={heroAnim}
-        alt="Apresentação animada SSTudo"
-        width={470}
-        height={369}
-        fetchPriority="high"
-        decoding="async"
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="relative block w-full h-auto"
-        draggable={false}
+      {/* TODO: substituir por nova mídia da seção hero */}
+      <div
+        className="relative block w-full"
+        style={{ aspectRatio: "470 / 369" }}
       />
     </div>
   );
