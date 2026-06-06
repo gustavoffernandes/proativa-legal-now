@@ -13,7 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/integrations/supabase/auth-context";
-import logoSstudo from "@/assets/logo-sstudo.png";
+import logoSstudoAsset from "@/assets/logo-sstudo.webp.asset.json";
+const logoSstudo = logoSstudoAsset.url;
 import {
   DropdownMenu,
   DropdownMenuContent,

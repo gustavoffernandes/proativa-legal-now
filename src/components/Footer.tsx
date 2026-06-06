@@ -1,5 +1,6 @@
 import { Lock } from "lucide-react";
-import logoSstudo from "@/assets/logo-sstudo.png";
+import logoSstudoAsset from "@/assets/logo-sstudo.webp.asset.json";
+const logoSstudo = logoSstudoAsset.url;
 import { FadeInView } from "./FadeInView";
 
 export function Footer() {
