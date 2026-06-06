@@ -18,6 +18,10 @@ function HeroAnimation() {
       <motion.img
         src={heroAnim}
         alt="Apresentação animada SSTudo"
+        width={470}
+        height={369}
+        fetchPriority="high"
+        decoding="async"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
