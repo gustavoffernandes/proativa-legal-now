@@ -9,6 +9,9 @@ import { SocialProof } from "@/sections/SocialProof";
 import { Pricing } from "@/sections/Pricing";
 import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
+import ogImageAsset from "@/assets/og-image-sstudo.png.asset.json";
+
+const OG_IMAGE_URL = `https://sstudo.com.br${ogImageAsset.url}`;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -39,6 +42,8 @@ export const Route = createFileRoute("/")({
         content:
           "Plataforma com metodologia Proart para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
       },
+      { property: "og:url", content: "https://sstudo.com.br/" },
+      { property: "og:image", content: OG_IMAGE_URL },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SSTudo — Conformidade NR-01 sem planilhas" },
@@ -47,9 +52,10 @@ export const Route = createFileRoute("/")({
         content:
           "Mapeie, analise e gere relatórios de Riscos Psicossociais prontos para o PGR. 70% OFF no lançamento.",
       },
+      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
-      { rel: "canonical", href: "https://proativa.app/" },
+      { rel: "canonical", href: "https://sstudo.com.br/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -66,7 +72,7 @@ export const Route = createFileRoute("/")({
             {
               "@type": "Organization",
               name: "SSTudo",
-              url: "https://proativa.app",
+              url: "https://sstudo.com.br",
               description:
                 "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
               contactPoint: {
