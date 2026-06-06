@@ -26,6 +26,15 @@ function HeroAnimation() {
 }
 
 export function Hero() {
+  const isMobile = useIsMobile();
+  const anim = (delay: number) =>
+    isMobile
+      ? {}
+      : {
+          initial: { opacity: 0, y: 12 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, delay },
+        };
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 gradient-radial-soft" />
