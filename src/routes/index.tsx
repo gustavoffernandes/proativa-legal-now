@@ -56,12 +56,6 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://sstudo.com.br/" },
-        content:
-          "Mapeie, analise e gere relatórios de Riscos Psicossociais prontos para o PGR. 70% OFF no lançamento.",
-      },
-    ],
-    links: [
-      { rel: "canonical", href: "https://proativa.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
