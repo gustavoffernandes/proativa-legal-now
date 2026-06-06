@@ -8,8 +8,11 @@ export function DashboardPreview() {
         <img
           src={dashboardImage}
           alt="Prévia do dashboard analítico SSTudo com benchmark por pilar, perfil comparativo e ranking de empresas"
-          className="w-full h-auto block"
+          width={1855}
+          height={949}
           loading="lazy"
+          decoding="async"
+          className="w-full h-auto block"
         />
       </div>
     </FadeInView>

@@ -110,7 +110,7 @@ export function Navbar() {
             </DropdownMenu>
 
             <a href="#top" className="flex items-center gap-2">
-              <img src={logoSstudo} alt="SSTudo" className="h-8 w-auto" />
+              <img src={logoSstudo} alt="SSTudo" width={96} height={32} fetchPriority="high" decoding="async" className="h-8 w-auto" />
             </a>
           </div>
 
