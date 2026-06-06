@@ -9,6 +9,9 @@ import { SocialProof } from "@/sections/SocialProof";
 import { Pricing } from "@/sections/Pricing";
 import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
+import ogImageAsset from "@/assets/og-image-sstudo.png.asset.json";
+
+const OG_IMAGE_URL = `https://sstudo.com.br${ogImageAsset.url}`;
 
 export const Route = createFileRoute("/")({
   component: Index,
