@@ -72,7 +72,7 @@ export const Route = createFileRoute("/")({
             {
               "@type": "Organization",
               name: "SSTudo",
-              url: "https://proativa.app",
+              url: "https://sstudo.com.br",
               description:
                 "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
               contactPoint: {
