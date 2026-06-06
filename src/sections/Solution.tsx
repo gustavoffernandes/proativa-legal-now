@@ -1,5 +1,5 @@
 import { LayoutGrid, Filter, ListChecks, Building2, FileDown, Lock } from "lucide-react";
-import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
+import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 const features = [
   {

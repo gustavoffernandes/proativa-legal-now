@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
+import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 const faqs = [
   {

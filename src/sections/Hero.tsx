@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Countdown } from "./Countdown";
+import { Countdown } from "@/components/Countdown";
 import heroAnim from "@/assets/hero-apresentacao.webp";
 
 // WebP animado: roda 1x (loop=1 no arquivo) e congela no último frame.

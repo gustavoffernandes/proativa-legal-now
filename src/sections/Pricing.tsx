@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { PlanId } from "@/lib/plans";
-import { FadeInView, FadeInStagger, FadeInItem } from "./FadeInView";
+import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 type Plan = {
   id: PlanId;
