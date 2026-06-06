@@ -59,9 +59,11 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
-        rel: "stylesheet",
+        rel: "preload",
+        as: "style",
         href: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap",
-      },
+        onLoad: "this.onload=null;this.rel='stylesheet'",
+      } as unknown as { rel: string; href: string },
     ],
     scripts: [
       {
