@@ -5,7 +5,8 @@ import { Hero } from "@/sections/Hero";
 import { Risk } from "@/sections/Risk";
 import { Solution } from "@/sections/Solution";
 import { HowItWorks } from "@/sections/HowItWorks";
-import { SocialProof } from "@/sections/SocialProof";
+import { Testimonials } from "@/sections/Testimonials";
+import { FinalCTA } from "@/sections/FinalCTA";
 import { Pricing } from "@/sections/Pricing";
 import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
@@ -136,7 +137,8 @@ function Index() {
         <Solution />
         <HowItWorks />
         <Pricing />
-        <SocialProof />
+        <Testimonials />
+        <FinalCTA />
         <FAQ />
         <Contact />
       </main>
