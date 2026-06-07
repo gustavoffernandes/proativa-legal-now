@@ -2,59 +2,72 @@ import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 const steps = [
   {
-    n: "01",
-    title: "Dispare a pesquisa anônima",
-    desc: "Link seguro, em conformidade com LGPD, pronto para circular em minutos.",
+    n: "1",
+    title: "Cadastre sua empresa",
+    desc: "Configure setores, cargos e defina os grupos homogêneos de exposição (GHEs).",
   },
   {
-    n: "02",
-    title: "O dashboard processa em tempo real",
-    desc: "Heatmap, demografia e tendências atualizadas a cada resposta.",
+    n: "2",
+    title: "Envie a pesquisa",
+    desc: "Compartilhe o link anônimo com os colaboradores. O SSTudo coleta e tabula tudo automaticamente.",
   },
   {
-    n: "03",
-    title: "Exporte o PDF e crie planos de ação",
-    desc: "Documentação pronta para o PGR e medidas rastreáveis no mesmo lugar.",
+    n: "3",
+    title: "Analise os riscos",
+    desc: "Veja o heatmap, compare setores e identifique os pontos críticos com precisão.",
+  },
+  {
+    n: "4",
+    title: "Gere o relatório",
+    desc: "Exporte o PDF completo para o PGR com um clique. Documento pronto para auditoria.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="como" className="py-20 sm:py-28 bg-secondary/40">
+    <section id="como-funciona" className="py-20 sm:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <FadeInView>
-          <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-widest text-primary">Como funciona</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
-              Três passos. Zero complicação.
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="font-display text-3xl sm:text-4xl text-slate-900 text-balance">
+              Em 4 passos, sua empresa está em conformidade
             </h2>
           </div>
         </FadeInView>
 
-        {/* Mobile: carrossel */}
-        <div className="mt-10 sm:hidden -mx-4">
-          <div className="snap-row">
-            {steps.map((s, i) => (
-              <FadeInView key={s.n} delay={i * 0.08} className="snap-item">
-                <div className="rounded-2xl border border-border bg-card p-6 h-full">
-                  <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
-                  <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+        {/* Desktop: horizontal with connector line */}
+        <div className="hidden md:block mt-12">
+          <div className="relative">
+            {/* Connector line */}
+            <div className="absolute top-6 left-[12.5%] right-[12.5%] h-0.5 bg-blue-200" />
+
+            <div className="grid grid-cols-4 gap-8">
+              {steps.map((s) => (
+                <div key={s.n} className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg relative z-10">
+                    {s.n}
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-bold text-slate-900">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500">{s.desc}</p>
                 </div>
-              </FadeInView>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Desktop: grid */}
-        <FadeInStagger className="mt-12 hidden sm:grid gap-6 sm:grid-cols-3" staggerDelay={0.12}>
+        {/* Mobile: vertical */}
+        <FadeInStagger className="md:hidden mt-12 flex flex-col gap-8" staggerDelay={0.12}>
           {steps.map((s) => (
             <FadeInItem key={s.n}>
-              <li className="relative rounded-2xl border border-border bg-card p-6 sm:p-8 h-full">
-                <span className="font-display text-5xl text-foreground/10 leading-none">{s.n}</span>
-                <h3 className="mt-4 font-display text-xl text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-              </li>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-base shrink-0">
+                  {s.n}
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-bold text-slate-900">{s.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-500">{s.desc}</p>
+                </div>
+              </div>
             </FadeInItem>
           ))}
         </FadeInStagger>
