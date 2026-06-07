@@ -1,51 +1,57 @@
-import { Gavel, TrendingUp, Receipt } from "lucide-react";
+import { AlertTriangle, Gavel, TrendingUp } from "lucide-react";
 import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
-const items = [
+const cards = [
+  {
+    icon: AlertTriangle,
+    impact: "até R\u00A0$\u00A0100 mil",
+    title: "Multas e interdição",
+    description:
+      "O PGR sem mapeamento de riscos psicossociais já é motivo de autuação fiscal. As multas podem ultrapassar R$ 100 mil e incluir interdição parcial das atividades.",
+  },
   {
     icon: Gavel,
-    title: "Multas e interdição",
-    desc: "PGR sem riscos psicossociais pode gerar autuações acima de R$ 100 mil e paralisação das atividades.",
+    impact: "\u2191 processos trabalhistas",
+    title: "Passivo trabalhista crescente",
+    description:
+      "Burnout e ansiedade são reconhecidos como doenças ocupacionais. Sem evidências de prevenção documentadas, sua empresa perde na Justiça do Trabalho.",
   },
   {
     icon: TrendingUp,
-    title: "Passivo trabalhista",
-    desc: "Burnout virou doença ocupacional. Sem evidências de prevenção, sua empresa perde na justiça.",
-  },
-  {
-    icon: Receipt,
-    title: "Aumento de impostos",
-    desc: "Afastamentos psiquiátricos elevam o FAP/NTEP — você passa a pagar mais imposto sobre folha.",
+    impact: "FAP/NTEP elevado",
+    title: "Mais imposto sobre a folha",
+    description:
+      "Afastamentos por transtornos psiquiátricos aumentam o fator FAP/NTEP e encarecem a alíquota do RAT — você paga mais imposto sobre a folha de pagamento.",
   },
 ];
 
 export function Risk() {
   return (
-    <section id="risco" className="py-20 sm:py-28">
+    <section id="risco" className="bg-white py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <FadeInView>
-          <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-widest text-primary">O Risco</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl text-foreground text-balance">
-              O que acontece se você ignorar a análise psicossocial?
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl text-balance">
+              O que acontece se sua empresa não se adequar?
             </h2>
-            <p className="mt-4 text-muted-foreground text-pretty">
-              A omissão deixa rastros na auditoria e na justiça. Três frentes que drenam caixa e reputação.
+            <p className="mt-4 text-slate-500 text-pretty">
+              Três consequências reais para quem ignorar os riscos psicossociais na NR-01
             </p>
           </div>
         </FadeInView>
 
-        {/* Mobile: carrossel lateral */}
+        {/* Mobile: scroll horizontal */}
         <div className="mt-10 sm:hidden -mx-4">
           <div className="snap-row">
-            {items.map((it, i) => (
-              <FadeInView key={it.title} delay={i * 0.08} className="snap-item">
-                <div className="rounded-2xl border border-border bg-card p-6 h-full">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
-                    <it.icon className="h-5 w-5" strokeWidth={2} />
+            {cards.map((card, i) => (
+              <FadeInView key={card.title} delay={i * 0.08} className="snap-item">
+                <div className="rounded-xl border border-red-100 bg-white p-6 shadow-sm h-full">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600">
+                    <card.icon className="h-5 w-5" strokeWidth={2} />
                   </div>
-                  <h3 className="mt-5 font-display text-xl text-foreground">{it.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+                  <p className="mt-4 text-2xl font-bold text-red-600">{card.impact}</p>
+                  <h3 className="mt-2 text-lg font-bold text-slate-900">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500">{card.description}</p>
                 </div>
               </FadeInView>
             ))}
@@ -54,18 +60,23 @@ export function Risk() {
 
         {/* Desktop: grid */}
         <FadeInStagger className="mt-12 hidden sm:grid gap-6 sm:grid-cols-3">
-          {items.map((it) => (
-            <FadeInItem key={it.title}>
-              <div className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-foreground/20 hover:shadow-[var(--shadow-soft)] h-full">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
-                  <it.icon className="h-5 w-5" strokeWidth={2} />
+          {cards.map((card) => (
+            <FadeInItem key={card.title}>
+              <div className="rounded-xl border border-red-100 bg-white p-6 shadow-sm h-full">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600">
+                  <card.icon className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <h3 className="mt-5 font-display text-xl text-foreground">{it.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+                <p className="mt-4 text-2xl font-bold text-red-600">{card.impact}</p>
+                <h3 className="mt-2 text-lg font-bold text-slate-900">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">{card.description}</p>
               </div>
             </FadeInItem>
           ))}
         </FadeInStagger>
+
+        <p className="mt-10 text-center text-sm italic text-slate-500">
+          A adequação custa menos do que uma única autuação.
+        </p>
       </div>
     </section>
   );
