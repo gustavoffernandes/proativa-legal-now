@@ -137,7 +137,8 @@ function Index() {
         <Solution />
         <HowItWorks />
         <Pricing />
-        <SocialProof />
+        <Testimonials />
+        <FinalCTA />
         <FAQ />
         <Contact />
       </main>
