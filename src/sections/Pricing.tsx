@@ -126,7 +126,7 @@ export function Pricing() {
                     )}
                   >
                     {hi && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-[11px] font-semibold tracking-wide shadow-sm">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-xs font-semibold tracking-wide shadow-sm whitespace-nowrap">
                         Mais escolhido
                       </span>
                     )}
@@ -208,7 +208,7 @@ export function Pricing() {
                   )}
                 >
                   {hi && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-[11px] font-semibold tracking-wide shadow-sm">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-xs font-semibold tracking-wide shadow-sm whitespace-nowrap">
                       Mais escolhido
                     </span>
                   )}
