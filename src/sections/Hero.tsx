@@ -72,7 +72,7 @@ export function Hero() {
 
             <div
               className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs"
-              style={{ color: "#64748b" }}
+              style={{ color: "#94a3b8" }}
             >
               <span>🔒 LGPD compliant</span>
               <span>✓ 100% anônimo</span>
