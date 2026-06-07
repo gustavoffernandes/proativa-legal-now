@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check, X, Lock } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { PlanId } from "@/lib/plans";
 import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
@@ -66,23 +65,17 @@ export function Pricing() {
   const [annual, setAnnual] = useState(true);
 
   return (
-    <section id="precos" className="py-20 sm:py-28">
+    <section id="precos" className="py-20 sm:py-28" style={{ backgroundColor: "#0a1628" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <FadeInView className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center rounded-full border border-warning/40 bg-warning/10 text-warning-foreground px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-            <span className="text-warning">Lançamento</span>
-            <span className="mx-2 h-3 w-px bg-warning/40" />
-            <span className="text-foreground">70% OFF</span>
-          </span>
-
-          <h2 className="mt-4 font-display text-3xl sm:text-4xl text-foreground text-balance">
-            Conformidade com condição exclusiva.
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-white text-balance">
+            Conformidade NR-01 com condição de lançamento
           </h2>
-          <p className="mt-4 text-muted-foreground text-pretty">
-            Garanta o SSTudo agora e construa o histórico de prevenção antes da NR-01 entrar em vigor.
+          <p className="mt-4 text-[#94a3b8] text-pretty">
+            Garanta agora com 70% de desconto — preço sobe após o período de lançamento
           </p>
 
-          <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-border bg-card p-1">
+          <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
             {(["monthly", "annual"] as const).map((opt) => {
               const active = (opt === "annual") === annual;
               return (
@@ -93,13 +86,13 @@ export function Pricing() {
                   className={cn(
                     "px-4 py-1.5 text-sm rounded-full transition-colors",
                     active
-                      ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:text-foreground",
+                      ? "bg-white text-[#0a1628]"
+                      : "text-[#94a3b8] hover:text-white",
                   )}
                 >
                   {opt === "monthly" ? "Mensal" : "Anual"}
                   {opt === "annual" && (
-                    <span className="ml-1.5 text-[10px] uppercase tracking-wider text-success">
+                    <span className="ml-1.5 text-[10px] uppercase tracking-wider text-green-400">
                       -2 meses
                     </span>
                   )}
@@ -119,66 +112,61 @@ export function Pricing() {
                 <FadeInView key={p.name} delay={i * 0.1} className="snap-item">
                   <div
                     className={cn(
-                      "relative rounded-2xl border p-6 flex flex-col h-full",
+                      "relative rounded-2xl p-8 flex flex-col h-full",
                       hi
-                        ? "bg-primary text-primary-foreground border-primary shadow-[var(--shadow-elevated)]"
-                        : "bg-card border-border",
+                        ? "bg-[#1e3a5f] border-2 border-[#2563eb]"
+                        : "bg-[#1e293b] border border-white/[0.08]",
                     )}
                   >
                     {hi && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-xs font-semibold tracking-wide shadow-sm whitespace-nowrap">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#2563eb] text-white px-3 py-1 text-xs font-semibold shadow-sm whitespace-nowrap">
                         Mais escolhido
                       </span>
                     )}
-                    <h3 className={cn("font-display text-2xl", hi ? "text-primary-foreground" : "text-foreground")}>{p.name}</h3>
-                    <p className={cn("mt-2 text-sm min-h-[40px]", hi ? "text-primary-foreground/80" : "text-muted-foreground")}>{p.desc}</p>
+                    <h3 className="text-lg font-bold text-white">{p.name}</h3>
+                    <p className="mt-2 text-sm text-[#94a3b8] mb-4">{p.desc}</p>
 
-                    <div className="mt-6">
-                      <p className={cn("text-xs line-through", hi ? "text-primary-foreground/60" : "text-muted-foreground")}>De {price.from}</p>
+                    <div className="mt-2">
+                      <p className="text-sm text-[#475569] line-through">De {price.from}</p>
                       <p className="mt-1 flex items-baseline gap-1.5">
-                        <span className={cn("font-display text-4xl", hi ? "text-primary-foreground" : "text-foreground")}>{price.now}</span>
-                        <span className={cn("text-sm", hi ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                        <span className="text-4xl font-bold text-[#60a5fa]">{price.now}</span>
+                        <span className="text-sm text-[#64748b]">
                           /{annual ? "ano" : "mês"}
                         </span>
                       </p>
                     </div>
 
-                    <ul className="mt-6 space-y-2.5 flex-1">
+                    <div className="my-6 h-px bg-white/10" />
+
+                    <ul className="space-y-2.5 flex-1">
                       {p.features.map((f) => (
                         <li key={f.label} className="flex items-start gap-2.5 text-sm">
                           {f.included ? (
-                            <Check className={cn("h-4 w-4 mt-0.5 shrink-0", hi ? "text-success" : "text-success")} strokeWidth={2.5} />
+                            <Check className="h-4 w-4 mt-0.5 shrink-0 text-[#22c55e]" strokeWidth={2.5} />
                           ) : (
-                            <X className={cn("h-4 w-4 mt-0.5 shrink-0", hi ? "text-primary-foreground/40" : "text-muted-foreground/50")} />
+                            <X className="h-4 w-4 mt-0.5 shrink-0 text-[#64748b]" />
                           )}
-                          <span
-                            className={cn(
-                              f.included
-                                ? hi ? "text-primary-foreground" : "text-foreground"
-                                : hi ? "text-primary-foreground/60" : "text-muted-foreground/70",
-                            )}
-                          >
+                          <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#64748b]")}>
                             {f.label}
                           </span>
                         </li>
                       ))}
                     </ul>
 
-                    <Button
-                      asChild
-                      className={cn("mt-8 w-full", hi && "bg-white text-primary hover:bg-white/90 shadow-sm")}
-                      variant={hi ? "default" : "outline"}
-                      size="lg"
+                    <Link
+                      to="/checkout"
+                      search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
+                      className={cn(
+                        "mt-8 w-full inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-medium transition-colors",
+                        hi
+                          ? "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
+                          : "bg-transparent border border-white/[0.15] text-[#94a3b8] hover:text-white hover:border-white/30",
+                      )}
                     >
-                      <Link
-                        to="/checkout"
-                        search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
-                      >
-                        Assinar {p.name}
-                      </Link>
-                    </Button>
+                      Assinar {p.name}
+                    </Link>
                     {annual && (
-                      <p className={cn("mt-2 text-center text-[11px] leading-snug", hi ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                      <p className="mt-2 text-center text-[11px] leading-snug text-[#64748b]">
                         Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
                       </p>
                     )}
@@ -187,7 +175,7 @@ export function Pricing() {
               );
             })}
           </div>
-          <p className="mt-3 text-center text-[11px] uppercase tracking-widest text-muted-foreground">
+          <p className="mt-3 text-center text-[11px] uppercase tracking-widest text-[#64748b]">
             ← deslize para comparar →
           </p>
         </div>
@@ -201,68 +189,63 @@ export function Pricing() {
               <FadeInItem key={p.name}>
                 <div
                   className={cn(
-                    "relative rounded-2xl border p-6 sm:p-8 flex flex-col h-full",
+                    "relative rounded-2xl p-8 flex flex-col h-full",
                     hi
-                      ? "bg-primary text-primary-foreground border-primary shadow-[var(--shadow-elevated)] lg:scale-[1.02]"
-                      : "bg-card border-border",
+                      ? "bg-[#1e3a5f] border-2 border-[#2563eb] lg:scale-[1.02]"
+                      : "bg-[#1e293b] border border-white/[0.08]",
                   )}
                 >
                   {hi && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-warning text-warning-foreground px-3 py-1 text-xs font-semibold tracking-wide shadow-sm whitespace-nowrap">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#2563eb] text-white px-3 py-1 text-xs font-semibold shadow-sm whitespace-nowrap">
                       Mais escolhido
                     </span>
                   )}
-                  <h3 className={cn("font-display text-2xl", hi ? "text-primary-foreground" : "text-foreground")}>{p.name}</h3>
-                  <p className={cn("mt-2 text-sm min-h-[40px]", hi ? "text-primary-foreground/80" : "text-muted-foreground")}>{p.desc}</p>
+                  <h3 className="text-lg font-bold text-white">{p.name}</h3>
+                  <p className="mt-2 text-sm text-[#94a3b8] mb-4">{p.desc}</p>
 
-                  <div className="mt-6">
-                    <p className={cn("text-xs line-through", hi ? "text-primary-foreground/60" : "text-muted-foreground")}>
+                  <div className="mt-2">
+                    <p className="text-sm text-[#475569] line-through">
                       De {price.from}
                     </p>
                     <p className="mt-1 flex items-baseline gap-1.5">
-                      <span className={cn("font-display text-4xl", hi ? "text-primary-foreground" : "text-foreground")}>{price.now}</span>
-                      <span className={cn("text-sm", hi ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                      <span className="text-4xl font-bold text-[#60a5fa]">{price.now}</span>
+                      <span className="text-sm text-[#64748b]">
                         /{annual ? "ano" : "mês"}
                       </span>
                     </p>
                   </div>
 
-                  <ul className="mt-6 space-y-2.5 flex-1">
+                  <div className="my-6 h-px bg-white/10" />
+
+                  <ul className="space-y-2.5 flex-1">
                     {p.features.map((f) => (
                       <li key={f.label} className="flex items-start gap-2.5 text-sm">
                         {f.included ? (
-                          <Check className="h-4 w-4 mt-0.5 text-success shrink-0" strokeWidth={2.5} />
+                          <Check className="h-4 w-4 mt-0.5 text-[#22c55e] shrink-0" strokeWidth={2.5} />
                         ) : (
-                          <X className={cn("h-4 w-4 mt-0.5 shrink-0", hi ? "text-primary-foreground/40" : "text-muted-foreground/50")} />
+                          <X className="h-4 w-4 mt-0.5 shrink-0 text-[#64748b]" />
                         )}
-                        <span
-                          className={cn(
-                            f.included
-                              ? hi ? "text-primary-foreground" : "text-foreground"
-                              : hi ? "text-primary-foreground/60" : "text-muted-foreground/70",
-                          )}
-                        >
+                        <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#64748b]")}>
                           {f.label}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <Button
-                    asChild
-                    className={cn("mt-8 w-full", hi && "bg-white text-primary hover:bg-white/90 shadow-sm")}
-                    variant={hi ? "default" : "outline"}
-                    size="lg"
+                  <Link
+                    to="/checkout"
+                    search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
+                    className={cn(
+                      "mt-8 w-full inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-medium transition-colors",
+                      hi
+                        ? "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
+                        : "bg-transparent border border-white/[0.15] text-[#94a3b8] hover:text-white hover:border-white/30",
+                    )}
                   >
-                    <Link
-                      to="/checkout"
-                      search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
-                    >
-                      Assinar {p.name}
-                    </Link>
-                  </Button>
+                    Assinar {p.name}
+                  </Link>
                   {annual && (
-                    <p className={cn("mt-2 text-center text-[11px] leading-snug", hi ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                    <p className="mt-2 text-center text-[11px] leading-snug text-[#64748b]">
                       Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
                     </p>
                   )}
@@ -271,6 +254,11 @@ export function Pricing() {
             );
           })}
         </FadeInStagger>
+
+        <div className="mt-12 flex items-center justify-center gap-2 text-xs text-[#64748b]">
+          <Lock className="h-3.5 w-3.5" />
+          <span>Pagamento seguro · Cancele quando quiser · Suporte por e-mail incluído</span>
+        </div>
       </div>
     </section>
   );
