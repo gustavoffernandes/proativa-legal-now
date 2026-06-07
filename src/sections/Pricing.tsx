@@ -127,10 +127,10 @@ export function Pricing() {
                     <p className="mt-2 text-sm text-[#94a3b8] mb-4">{p.desc}</p>
 
                     <div className="mt-2">
-                      <p className="text-sm text-[#475569] line-through">De {price.from}</p>
+                      <p className="text-sm text-[#94a3b8] line-through">De {price.from}</p>
                       <p className="mt-1 flex items-baseline gap-1.5">
                         <span className="text-4xl font-bold text-[#60a5fa]">{price.now}</span>
-                        <span className="text-sm text-[#64748b]">
+                        <span className="text-sm text-[#94a3b8]">
                           /{annual ? "ano" : "mês"}
                         </span>
                       </p>
@@ -144,9 +144,9 @@ export function Pricing() {
                           {f.included ? (
                             <Check className="h-4 w-4 mt-0.5 shrink-0 text-[#22c55e]" strokeWidth={2.5} />
                           ) : (
-                            <X className="h-4 w-4 mt-0.5 shrink-0 text-[#64748b]" />
+                            <X className="h-4 w-4 mt-0.5 shrink-0 text-[#94a3b8]" />
                           )}
-                          <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#64748b]")}>
+                          <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#94a3b8]")}>
                             {f.label}
                           </span>
                         </li>
@@ -166,7 +166,7 @@ export function Pricing() {
                       Assinar {p.name}
                     </Link>
                     {annual && (
-                      <p className="mt-2 text-center text-[11px] leading-snug text-[#64748b]">
+                      <p className="mt-2 text-center text-[11px] leading-snug text-[#94a3b8]">
                         Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
                       </p>
                     )}
@@ -175,7 +175,7 @@ export function Pricing() {
               );
             })}
           </div>
-          <p className="mt-3 text-center text-[11px] uppercase tracking-widest text-[#64748b]">
+          <p className="mt-3 text-center text-[11px] uppercase tracking-widest text-[#94a3b8]">
             ← deslize para comparar →
           </p>
         </div>
@@ -204,12 +204,12 @@ export function Pricing() {
                   <p className="mt-2 text-sm text-[#94a3b8] mb-4">{p.desc}</p>
 
                   <div className="mt-2">
-                    <p className="text-sm text-[#475569] line-through">
+                    <p className="text-sm text-[#94a3b8] line-through">
                       De {price.from}
                     </p>
                     <p className="mt-1 flex items-baseline gap-1.5">
                       <span className="text-4xl font-bold text-[#60a5fa]">{price.now}</span>
-                      <span className="text-sm text-[#64748b]">
+                      <span className="text-sm text-[#94a3b8]">
                         /{annual ? "ano" : "mês"}
                       </span>
                     </p>
@@ -223,9 +223,9 @@ export function Pricing() {
                         {f.included ? (
                           <Check className="h-4 w-4 mt-0.5 text-[#22c55e] shrink-0" strokeWidth={2.5} />
                         ) : (
-                          <X className="h-4 w-4 mt-0.5 shrink-0 text-[#64748b]" />
+                          <X className="h-4 w-4 mt-0.5 shrink-0 text-[#94a3b8]" />
                         )}
-                        <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#64748b]")}>
+                        <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#94a3b8]")}>
                           {f.label}
                         </span>
                       </li>
@@ -245,7 +245,7 @@ export function Pricing() {
                     Assinar {p.name}
                   </Link>
                   {annual && (
-                    <p className="mt-2 text-center text-[11px] leading-snug text-[#64748b]">
+                    <p className="mt-2 text-center text-[11px] leading-snug text-[#94a3b8]">
                       Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
                     </p>
                   )}
@@ -255,7 +255,7 @@ export function Pricing() {
           })}
         </FadeInStagger>
 
-        <div className="mt-12 flex items-center justify-center gap-2 text-xs text-[#64748b]">
+        <div className="mt-12 flex items-center justify-center gap-2 text-xs text-[#94a3b8]">
           <Lock className="h-3.5 w-3.5" />
           <span>Pagamento seguro · Cancele quando quiser · Suporte por e-mail incluído</span>
         </div>

@@ -39,10 +39,15 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-primary">
+    <section
+      id="faq"
+      className="py-20 sm:py-28 bg-primary"
+      itemScope
+      itemType="https://schema.org/FAQPage"
+    >
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <FadeInView className="text-center">
-          <p className="text-xs uppercase tracking-widest text-background/70">FAQ</p>
+          <p className="text-xs uppercase tracking-widest text-background/80">FAQ</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl text-background text-balance">
             Perguntas frequentes
           </h2>
@@ -52,14 +57,24 @@ export function FAQ() {
           <Accordion type="single" collapsible>
             {faqs.map((f, i) => (
               <FadeInItem key={i}>
-                <AccordionItem value={`item-${i}`} className="border-border">
-                  <AccordionTrigger className="text-left font-medium text-background hover:no-underline">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-background/75 leading-relaxed text-justify">
-                    {f.a}
-                  </AccordionContent>
-                </AccordionItem>
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <AccordionItem value={`item-${i}`} className="border-border">
+                    <AccordionTrigger
+                      className="text-left font-medium text-background hover:no-underline"
+                      itemProp="name"
+                    >
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className="text-background/85 leading-relaxed text-justify"
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <span itemProp="text">{f.a}</span>
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
               </FadeInItem>
             ))}
           </Accordion>
