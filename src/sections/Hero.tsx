@@ -1,77 +1,97 @@
-import { ArrowRight, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useIsMobile } from "@/hooks/use-mobile";
-
-
-// WebP animado: roda 1x (loop=1 no arquivo) e congela no último frame.
-// Fundo já é transparente, integrado ao site.
-function HeroAnimation() {
-  return (
-    <div className="relative mx-auto w-full max-w-sm">
-      <motion.div
-        aria-hidden
-        className="absolute inset-8 rounded-full bg-primary/15 blur-3xl"
-        animate={{ opacity: [0.4, 0.65, 0.4], scale: [0.95, 1.03, 0.95] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-      {/* TODO: substituir por nova mídia da seção hero */}
-      <div
-        className="relative block w-full"
-        style={{ aspectRatio: "470 / 369" }}
-      />
-    </div>
-  );
-}
+import heroLaptop from "@/assets/hero-laptop-v2.webp.asset.json";
 
 export function Hero() {
-  const isMobile = useIsMobile();
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 gradient-radial-soft" />
-      <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+    <section
+      id="top"
+      className="relative overflow-hidden"
+      style={{ backgroundColor: "#0a1628" }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 70% at 25% 50%, #0f2040 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-12 pb-16 sm:pt-20 sm:pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          {/* Texto à esquerda */}
+          {/* Coluna esquerda */}
           <div className="flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 backdrop-blur px-3.5 py-1.5 text-xs font-medium text-foreground">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
-              Oferta de lançamento — <span className="text-success">70% OFF</span>
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+              style={{
+                backgroundColor: "rgba(37,99,235,0.15)",
+                border: "1px solid rgba(37,99,235,0.4)",
+                color: "#93c5fd",
+              }}
+            >
+              ⚡ NR-01 atualizada — conformidade obrigatória
             </div>
 
-            <h1 className="mt-6 max-w-xl text-balance font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-foreground">
-              A atualização da NR-01 vai multar quem ignorar a <span className="italic text-primary">saúde mental</span>.
+            <h1 className="mt-6 max-w-xl font-display text-4xl md:text-5xl font-bold leading-[1.1] text-white">
+              Sua empresa está{" "}
+              <span style={{ color: "#60a5fa" }}>protegida</span> contra as
+              novas exigências da NR-01?
             </h1>
 
-            <p className="mt-5 max-w-lg text-pretty text-base sm:text-lg text-muted-foreground leading-relaxed">
-              A partir de maio de 2026, a Gestão de Riscos Psicossociais é obrigatória no PGR. O SSTudo mapeia, analisa
-              e gera relatórios prontos — sem planilhas, sem improviso.
+            <p
+              className="mt-5 max-w-lg text-base leading-relaxed"
+              style={{ color: "#94a3b8" }}
+            >
+              A NR-01 já exige o mapeamento de riscos psicossociais no PGR. O
+              SSTudo digitaliza todo o processo — pesquisa, análise, heatmap e
+              relatório PDF — sem planilha, sem improviso.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-              <Button asChild size="lg" className="w-full sm:w-auto group">
-                <a href="#precos">
-                  Proteger minha empresa
-                  <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-lg font-semibold px-6 py-6 text-white hover:opacity-90"
+                style={{ backgroundColor: "#2563eb" }}
+              >
+                <a href="#precos">Adequar minha empresa agora</a>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-lg bg-transparent hover:bg-white/5"
+                style={{
+                  borderColor: "rgba(255,255,255,0.2)",
+                  color: "#94a3b8",
+                }}
+              >
+                <a href="#precos">Ver planos e preços →</a>
+              </Button>
+            </div>
+
+            <div
+              className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs"
+              style={{ color: "#64748b" }}
+            >
+              <span>🔒 LGPD compliant</span>
+              <span>✓ 100% anônimo</span>
+              <span>📄 PDF em 1 clique</span>
             </div>
           </div>
 
-          {/* Vídeo/GIF à direita */}
-          <motion.div
-            {...(isMobile
-              ? {}
-              : {
-                  initial: { opacity: 0, y: 20 },
-                  animate: { opacity: 1, y: 0 },
-                  transition: { duration: 0.7, delay: 0.2 },
-                })}
-            className="w-full"
-          >
-            <HeroAnimation />
-          </motion.div>
+          {/* Coluna direita */}
+          <div className="hidden lg:flex justify-center lg:justify-end">
+            <img
+              src={heroLaptop.url}
+              alt="Dashboard SSTudo em um notebook"
+              width={580}
+              height={431}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full max-w-[580px] h-auto rounded-lg"
+            />
+          </div>
         </div>
       </div>
     </section>
