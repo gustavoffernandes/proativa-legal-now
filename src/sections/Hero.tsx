@@ -42,9 +42,10 @@ export function Hero() {
               className="mt-5 max-w-lg text-base leading-relaxed"
               style={{ color: "#94a3b8" }}
             >
-              A NR-01 já exige o mapeamento de riscos psicossociais no PGR. O
-              SSTudo digitaliza todo o processo — pesquisa, análise, heatmap e
-              relatório PDF — sem planilha, sem improviso.
+              Desde maio de 2026, o mapeamento de riscos psicossociais é
+              obrigatório no PGR. O SSTudo digitaliza todo o processo —
+              pesquisa, análise, heatmap e relatório PDF — sem planilha, sem
+              improviso.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
