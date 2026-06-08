@@ -72,7 +72,7 @@ export function Pricing() {
             Conformidade NR-01 com condição de lançamento
           </h2>
           <p className="mt-4 text-[#94a3b8] text-pretty">
-            Garanta agora com 70% de desconto — preço sobe após o período de lançamento
+            A NR-01 já está em vigor. Regularize sua empresa agora com condição especial de lançamento.
           </p>
 
           <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
