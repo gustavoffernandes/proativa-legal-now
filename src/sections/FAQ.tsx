@@ -42,8 +42,6 @@ export function FAQ() {
     <section
       id="faq"
       className="py-20 sm:py-28 bg-primary"
-      itemScope
-      itemType="https://schema.org/FAQPage"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <FadeInView className="text-center">
@@ -57,14 +55,14 @@ export function FAQ() {
           <Accordion type="single" collapsible>
             {faqs.map((f, i) => (
               <FadeInItem key={i}>
-                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                <div>
                   <AccordionItem value={`item-${i}`} className="border-border">
                     <AccordionTrigger className="text-left font-medium text-background hover:no-underline">
-                      <div itemProp="name">{f.q}</div>
+                      <div>{f.q}</div>
                     </AccordionTrigger>
                     <AccordionContent className="text-background/85 leading-relaxed text-justify">
-                      <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                        <p itemProp="text">{f.a}</p>
+                      <div>
+                        <p>{f.a}</p>
                       </div>
                     </AccordionContent>
                   </AccordionItem>

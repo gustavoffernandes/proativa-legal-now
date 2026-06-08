@@ -94,6 +94,71 @@ export const Route = createFileRoute("/")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "O que muda na NR-01 em relação ao PGR?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A atualização da NR-01, em vigor desde maio de 2026, tornou obrigatório o mapeamento e gestão de riscos psicossociais no PGR. Isso inclui identificar fatores como burnout, assédio moral e sobrecarga de trabalho — e documentar as medidas de prevenção adotadas pela empresa.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Burnout é considerado doença ocupacional pela NR-01?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sim. A partir da atualização da NR-01, burnout e outros transtornos psicossociais passaram a ser tratados como riscos ocupacionais que devem constar no PGR. Empresas sem esse mapeamento estão sujeitas a autuações e processos trabalhistas.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "O SSTudo serve para qualquer tamanho de empresa?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sim. O SSTudo atende desde pequenas empresas com um único CNPJ até consultorias SST que gerenciam dezenas de clientes simultaneamente. Os planos variam de 1 empresa (Starter) até 50 empresas (Empresarial).",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Como o SSTudo garante o anonimato dos respondentes?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A pesquisa é enviada por link sem identificação. Nenhum dado pessoal é coletado dos respondentes — apenas as respostas às perguntas do formulário. O sistema está em conformidade com a LGPD.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Quanto tempo leva para gerar o relatório do PGR?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Após o encerramento da pesquisa, o relatório PDF completo é gerado em menos de 1 minuto. O documento já está no formato exigido para anexar ao PGR e apresentar em fiscalização da NR-01.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "O desconto de 70% no plano de lançamento é permanente?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Não. O desconto de 70% é válido apenas durante o período de lançamento. Quem assinar agora garante o preço promocional pelo período contratado. Após o lançamento, os valores retornam ao preço cheio.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Posso migrar de plano se minha consultoria crescer?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sim. É possível fazer upgrade de plano a qualquer momento pelo painel de assinatura. O valor pago é proporcional ao período restante do plano atual.",
+              },
+            },
+          ],
+        }),
+      },
     ],
   }),
 });
