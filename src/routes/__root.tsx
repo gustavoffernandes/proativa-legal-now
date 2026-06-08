@@ -34,14 +34,14 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Plataforma para conformidade NR-01: gestão de Riscos Psicossociais com metodologia Proart, relatórios prontos para o PGR.",
+          "Gerencie riscos psicossociais e atenda a NR-01 com o SSTudo. Pesquisa anônima, heatmap automático e relatório PDF para o PGR. Experimente agora.",
       },
       { name: "author", content: "SSTudo" },
       { property: "og:title", content: "SSTudo — Conformidade NR-01" },
       {
         property: "og:description",
         content:
-          "Plataforma com metodologia Proart para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
+          "Plataforma para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
