@@ -91,29 +91,6 @@ export const Route = createFileRoute("/")({
                 offerCount: "3",
               },
             },
-            {
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "A pesquisa tem validade jurídica para o PGR?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text:
-                      "Sim. O fluxo segue boas práticas de documentação para o PGR com rastreabilidade e relatórios exportáveis baseados na metodologia Proart.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Como o SSTudo garante o anonimato dos colaboradores?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text:
-                      "Aplicamos separação de identidade, controles LGPD e agregação mínima dos dados para evitar reidentificação dos respondentes.",
-                  },
-                },
-              ],
-            },
           ],
         }),
       },

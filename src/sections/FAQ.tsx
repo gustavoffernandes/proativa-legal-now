@@ -59,19 +59,13 @@ export function FAQ() {
               <FadeInItem key={i}>
                 <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                   <AccordionItem value={`item-${i}`} className="border-border">
-                    <AccordionTrigger
-                      className="text-left font-medium text-background hover:no-underline"
-                      itemProp="name"
-                    >
-                      {f.q}
+                    <AccordionTrigger className="text-left font-medium text-background hover:no-underline">
+                      <div itemProp="name">{f.q}</div>
                     </AccordionTrigger>
-                    <AccordionContent
-                      className="text-background/85 leading-relaxed text-justify"
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
-                    >
-                      <span itemProp="text">{f.a}</span>
+                    <AccordionContent className="text-background/85 leading-relaxed text-justify">
+                      <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                        <p itemProp="text">{f.a}</p>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 </div>
