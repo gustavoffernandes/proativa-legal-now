@@ -22,17 +22,17 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Plataforma para Gestão de Riscos Psicossociais (NR-01). Mapeie, analise e gere relatórios prontos para o PGR. 70% OFF no lançamento — adeque sua empresa antes de 26/05/2026.",
+          "Gerencie riscos psicossociais e atenda a NR-01 com o SSTudo. Pesquisa anônima, heatmap automático e relatório PDF para o PGR. Experimente agora.",
       },
       {
         name: "keywords",
         content:
-          "NR-01, riscos psicossociais, PGR, saúde mental no trabalho, SST, metodologia Proart, conformidade trabalhista, burnout ocupacional, gestão de riscos",
+          "NR-01, riscos psicossociais, PGR, saúde mental no trabalho, SST, conformidade NR-01, burnout ocupacional, gestão de riscos trabalhistas",
       },
       { name: "author", content: "SSTudo" },
       { name: "robots", content: "index, follow" },
       { name: "language", content: "pt-BR" },
-      { name: "theme-color", content: "#59554e" },
+      { name: "theme-color", content: "#0a1628" },
 
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Plataforma com metodologia Proart para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
+          "Plataforma para Gestão de Riscos Psicossociais. Heatmap, planos de ação e PDF pronto para o PGR.",
       },
       { property: "og:url", content: "https://sstudo.com.br/" },
       { property: "og:image", content: OG_IMAGE_URL },

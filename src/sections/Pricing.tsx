@@ -72,7 +72,7 @@ export function Pricing() {
             Conformidade NR-01 com condição de lançamento
           </h2>
           <p className="mt-4 text-[#94a3b8] text-pretty">
-            Garanta agora com 70% de desconto — preço sobe após o período de lançamento
+            A NR-01 já está em vigor. Regularize sua empresa agora com condição especial de lançamento.
           </p>
 
           <div className="mt-8 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
@@ -102,86 +102,11 @@ export function Pricing() {
           </div>
         </FadeInView>
 
-        {/* Mobile: carrossel lateral */}
-        <div className="mt-12 lg:hidden -mx-4">
-          <div className="snap-row items-stretch">
-            {plans.map((p, i) => {
-              const price = annual ? p.annual : p.monthly;
-              const hi = p.highlighted;
-              return (
-                <FadeInView key={p.name} delay={i * 0.1} className="snap-item">
-                  <div
-                    className={cn(
-                      "relative rounded-2xl p-8 flex flex-col h-full",
-                      hi
-                        ? "bg-[#1e3a5f] border-2 border-[#2563eb]"
-                        : "bg-[#1e293b] border border-white/[0.08]",
-                    )}
-                  >
-                    {hi && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#2563eb] text-white px-3 py-1 text-xs font-semibold shadow-sm whitespace-nowrap">
-                        Mais escolhido
-                      </span>
-                    )}
-                    <h3 className="text-lg font-bold text-white">{p.name}</h3>
-                    <p className="mt-2 text-sm text-[#94a3b8] mb-4">{p.desc}</p>
-
-                    <div className="mt-2">
-                      <p className="text-sm text-[#94a3b8] line-through">De {price.from}</p>
-                      <p className="mt-1 flex items-baseline gap-1.5">
-                        <span className="text-4xl font-bold text-[#60a5fa]">{price.now}</span>
-                        <span className="text-sm text-[#94a3b8]">
-                          /{annual ? "ano" : "mês"}
-                        </span>
-                      </p>
-                    </div>
-
-                    <div className="my-6 h-px bg-white/10" />
-
-                    <ul className="space-y-2.5 flex-1">
-                      {p.features.map((f) => (
-                        <li key={f.label} className="flex items-start gap-2.5 text-sm">
-                          {f.included ? (
-                            <Check className="h-4 w-4 mt-0.5 shrink-0 text-[#22c55e]" strokeWidth={2.5} />
-                          ) : (
-                            <X className="h-4 w-4 mt-0.5 shrink-0 text-[#94a3b8]" />
-                          )}
-                          <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#94a3b8]")}>
-                            {f.label}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      to="/checkout"
-                      search={{ plan: p.id, cycle: annual ? "annual" : "monthly" }}
-                      className={cn(
-                        "mt-8 w-full inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-medium transition-colors",
-                        hi
-                          ? "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
-                          : "bg-transparent border border-white/[0.15] text-[#94a3b8] hover:text-white hover:border-white/30",
-                      )}
-                    >
-                      Assinar {p.name}
-                    </Link>
-                    {annual && (
-                      <p className="mt-2 text-center text-[11px] leading-snug text-[#94a3b8]">
-                        Você assina 12 meses e paga apenas 10 — 2 meses de vantagem.
-                      </p>
-                    )}
-                  </div>
-                </FadeInView>
-              );
-            })}
-          </div>
-          <p className="mt-3 text-center text-[11px] uppercase tracking-widest text-[#94a3b8]">
-            ← deslize para comparar →
-          </p>
-        </div>
-
-        {/* Desktop: grid */}
-        <FadeInStagger className="mt-12 hidden lg:grid gap-6 lg:grid-cols-3" staggerDelay={0.12}>
+        {/* Responsive grid: 1 col mobile, 3 col desktop */}
+        <FadeInStagger
+          className="mt-12 grid gap-6 grid-cols-1 lg:grid-cols-3"
+          staggerDelay={0.12}
+        >
           {plans.map((p) => {
             const price = annual ? p.annual : p.monthly;
             const hi = p.highlighted;
@@ -225,9 +150,7 @@ export function Pricing() {
                         ) : (
                           <X className="h-4 w-4 mt-0.5 shrink-0 text-[#94a3b8]" />
                         )}
-                        <span className={cn(f.included ? "text-[#94a3b8]" : "text-[#94a3b8]")}>
-                          {f.label}
-                        </span>
+                        <span className="text-[#94a3b8]">{f.label}</span>
                       </li>
                     ))}
                   </ul>

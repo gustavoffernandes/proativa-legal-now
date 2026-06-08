@@ -11,7 +11,7 @@ const cards = [
   },
   {
     icon: Gavel,
-    impact: "\u2191 processos trabalhistas",
+    impact: "+340% de processos por burnout desde 2020",
     title: "Passivo trabalhista crescente",
     description:
       "Burnout e ansiedade são reconhecidos como doenças ocupacionais. Sem evidências de prevenção documentadas, sua empresa perde na Justiça do Trabalho.",
@@ -40,26 +40,7 @@ export function Risk() {
           </div>
         </FadeInView>
 
-        {/* Mobile: scroll horizontal */}
-        <div className="mt-10 sm:hidden -mx-4">
-          <div className="snap-row">
-            {cards.map((card, i) => (
-              <FadeInView key={card.title} delay={i * 0.08} className="snap-item">
-                <div className="rounded-xl border border-red-100 bg-white p-6 shadow-sm h-full">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600">
-                    <card.icon className="h-5 w-5" strokeWidth={2} />
-                  </div>
-                  <p className="mt-4 text-2xl font-bold text-red-600">{card.impact}</p>
-                  <h3 className="mt-2 text-lg font-bold text-slate-900">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-500">{card.description}</p>
-                </div>
-              </FadeInView>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop: grid */}
-        <FadeInStagger className="mt-12 hidden sm:grid gap-6 sm:grid-cols-3">
+        <FadeInStagger className="mt-10 sm:mt-12 grid gap-6 grid-cols-1 sm:grid-cols-3">
           {cards.map((card) => (
             <FadeInItem key={card.title}>
               <div className="rounded-xl border border-red-100 bg-white p-6 shadow-sm h-full">

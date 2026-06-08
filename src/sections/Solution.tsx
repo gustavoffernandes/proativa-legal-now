@@ -5,12 +5,12 @@ const features = [
   {
     icon: Users,
     title: "Pesquisa 100% anônima",
-    desc: "Formulário validado com metodologia Proart enviado por link. Os funcionários respondem sem identificação.",
+    desc: "Formulário validado com metodologia consagrada enviado por link. Os funcionários respondem sem identificação.",
   },
   {
     icon: Flame,
     title: "Heatmap de riscos automático",
-    desc: "Matriz de probabilidade × severidade gerada automaticamente por setor, cargo e GHE.",
+    desc: "Matriz de probabilidade × severidade gerada automaticamente por setor e cargo.",
   },
   {
     icon: ListChecks,
