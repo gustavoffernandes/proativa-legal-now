@@ -4,7 +4,7 @@ import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 const cards = [
   {
     icon: AlertTriangle,
-    impact: "até R\u00A0$\u00A0100 mil",
+    impact: "Até R$\u00A0100 mil",
     title: "Multas e interdição",
     description:
       "O PGR sem mapeamento de riscos psicossociais já é motivo de autuação fiscal. As multas podem ultrapassar R$ 100 mil e incluir interdição parcial das atividades.",
