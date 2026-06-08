@@ -31,7 +31,7 @@ export function Solution() {
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-display text-3xl sm:text-4xl text-slate-900 text-balance">
-              Tudo que a fiscalização exige, em uma plataforma
+              Tudo que o PGR exige para conformidade com a NR-01
             </h2>
             <p className="mt-4 text-slate-500 text-pretty">
               Do envio da pesquisa ao relatório final para o PGR — sem planilha, sem consultoria cara

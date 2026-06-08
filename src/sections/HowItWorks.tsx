@@ -30,7 +30,7 @@ export function HowItWorks() {
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-display text-3xl sm:text-4xl text-slate-900 text-balance">
-              Em 4 passos, sua empresa está em conformidade
+              Em 3 passos, seu PGR está em conformidade com a NR-01
             </h2>
           </div>
         </FadeInView>

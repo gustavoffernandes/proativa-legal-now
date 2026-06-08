@@ -32,7 +32,7 @@ export function Risk() {
         <FadeInView>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl text-balance">
-              O que acontece se sua empresa não se adequar?
+              O que acontece com quem ignora a NR-01 e o PGR?
             </h2>
             <p className="mt-4 text-slate-500 text-pretty">
               Três consequências reais para quem ignorar os riscos psicossociais na NR-01

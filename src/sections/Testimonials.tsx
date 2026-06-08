@@ -92,7 +92,7 @@ export function Testimonials() {
             className="text-3xl sm:text-4xl font-bold"
             style={{ color: "#0f172a" }}
           >
-            Quem já está em conformidade
+            Quem já adequou o PGR à NR-01
           </h2>
           <p className="mt-3 text-base" style={{ color: "#64748b" }}>
             Consultorias e empresas que usam o SSTudo para atender a NR-01 sem
