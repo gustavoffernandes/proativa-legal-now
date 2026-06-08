@@ -85,7 +85,7 @@ export function Hero() {
           <div className="hidden lg:flex justify-center lg:justify-end">
             <img
               src={heroLaptop.url}
-              alt="Dashboard SSTudo em um notebook"
+              alt="Dashboard do SSTudo com heatmap de riscos psicossociais para conformidade NR-01"
               width={580}
               height={431}
               fetchPriority="high"

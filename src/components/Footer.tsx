@@ -12,11 +12,11 @@ export function Footer() {
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center justify-center rounded-md bg-white px-2 py-1">
-                  <img src={logoSstudo} alt="SSTudo" width={84} height={28} loading="lazy" decoding="async" className="h-7 w-auto" />
+                  <img src={logoSstudo} alt="SSTudo — Conformidade NR-01" width={84} height={28} loading="lazy" decoding="async" className="h-7 w-auto" />
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-sm text-primary-foreground/75">
-                Plataforma de gestão de riscos psicossociais em conformidade com a NR-01.
+                Plataforma para gestão de riscos psicossociais e conformidade com a NR-01. PGR digital, pesquisa de burnout anônima e relatório PDF para auditoria.
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-2.5 py-1 text-[11px] text-primary-foreground/80">
