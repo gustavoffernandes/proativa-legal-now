@@ -29,7 +29,7 @@ export function Hero() {
                 color: "#93c5fd",
               }}
             >
-              ⚡ NR-01 atualizada — conformidade obrigatória
+              ⚡ NR-01 em vigor — adequação obrigatória agora
             </div>
 
             <h1 className="mt-6 max-w-xl font-display text-4xl md:text-5xl font-bold leading-[1.1] text-white">
