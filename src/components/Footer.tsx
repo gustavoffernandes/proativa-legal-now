@@ -47,7 +47,7 @@ export function Footer() {
           </div>
 
           <div className="mt-12 pt-6 border-t border-primary-foreground/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-primary-foreground/80">
-            <p>© 2025 SSTudo. Plataforma de gestão de riscos psicossociais conforme NR-01. LGPD compliant.</p>
+            <p>© 2026 SSTudo. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
