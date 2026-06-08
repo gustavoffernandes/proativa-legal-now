@@ -100,18 +100,8 @@ export function Testimonials() {
           </p>
         </FadeInView>
 
-        {/* Mobile: single column */}
-        <div className="mt-10 sm:hidden space-y-4">
-          {testimonials.map((t, i) => (
-            <FadeInView key={t.name} delay={i * 0.1}>
-              <TestimonialCard {...t} />
-            </FadeInView>
-          ))}
-        </div>
-
-        {/* Desktop: 2 columns */}
         <FadeInStagger
-          className="mt-10 hidden sm:grid gap-5 sm:grid-cols-2"
+          className="mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2"
           staggerDelay={0.12}
         >
           {testimonials.map((t) => (
