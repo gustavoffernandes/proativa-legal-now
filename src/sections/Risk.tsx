@@ -11,7 +11,7 @@ const cards = [
   },
   {
     icon: Gavel,
-    impact: "\u2191 processos trabalhistas",
+    impact: "+340% de processos por burnout desde 2020",
     title: "Passivo trabalhista crescente",
     description:
       "Burnout e ansiedade são reconhecidos como doenças ocupacionais. Sem evidências de prevenção documentadas, sua empresa perde na Justiça do Trabalho.",
