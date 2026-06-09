@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "SSTudo — Conformidade NR-01 | PGR e Burnout sem Planilhas" },
+      { title: "SSTudo — Conformidade NR-01 | PGR Digital sem Planilhas" },
       {
         name: "description",
         content:
@@ -33,6 +33,8 @@ export const Route = createFileRoute("/")({
       { name: "robots", content: "index, follow" },
       { name: "language", content: "pt-BR" },
       { name: "theme-color", content: "#0a1628" },
+      { name: "msapplication-TileImage", content: "/favicon-192x192.png" },
+      { name: "msapplication-TileColor", content: "#225395" },
 
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
@@ -57,6 +59,13 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://sstudo.com.br/" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon-512x512.png" },
     ],
     scripts: [
       {
