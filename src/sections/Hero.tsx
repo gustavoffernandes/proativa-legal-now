@@ -41,9 +41,12 @@ export function Hero() {
               className="mt-5 max-w-lg text-base leading-relaxed"
               style={{ color: "#94a3b8" }}
             >
-              PGR, ASO, canal de denúncias e análise de riscos psicossociais —
-              a SSTudo reúne as ferramentas que sua empresa precisa para
-              atender às NRs sem complicação.
+              Sua empresa não precisa contratar quatro fornecedores
+              diferentes para atender às exigências de SST. A SSTudo reúne
+              PGR, ASO, canal de denúncias e análise de riscos psicossociais
+              em soluções conectadas, pensadas para reduzir o trabalho manual
+              e o risco de autuação — sem depender de planilhas ou processos
+              manuais.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
