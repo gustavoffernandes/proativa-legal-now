@@ -47,15 +47,15 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-            <a
-              href="https://wa.me/559391009999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#2563eb" }}
-            >
-              Falar com um especialista
-            </a>
+              <a
+                href="https://wa.me/559391009999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#2563eb" }}
+              >
+                Falar com um especialista
+              </a>
             </div>
 
             <div
