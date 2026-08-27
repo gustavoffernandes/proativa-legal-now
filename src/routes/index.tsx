@@ -18,16 +18,16 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "SSTudo — Conformidade NR-01 | PGR Digital sem Planilhas" },
+      { title: "SSTudo — Soluções em SST: PGR, ASO, Denúncias e Riscos Psicossociais" },
       {
         name: "description",
         content:
-          "Adeque sua empresa à NR-01 agora. O SSTudo digitaliza o PGR com pesquisa anônima de burnout e riscos psicossociais — heatmap automático e relatório PDF em 1 clique. Experimente grátis.",
+          "A SSTudo reúne quatro soluções para conformidade em Segurança e Saúde no Trabalho: Diagnóstico PGR, Denúncia Proativa, ASO Digital e PsicoHub. Fale com um especialista.",
       },
       {
         name: "keywords",
         content:
-          "nr1, pgr, burnout, saúde e segurança no trabalho, nr 1, psicossocial, segurança no trabalho, software sst, sistema sst, burnout no trabalho, riscos psicossociais, conformidade nr-01, pgr psicossocial",
+          "sst, pgr, aso, canal de denúncias, riscos psicossociais, conformidade sst, segurança do trabalho, gestão de sst, nr1, burnout",
       },
       { name: "author", content: "SSTudo" },
       { name: "robots", content: "index, follow" },
@@ -39,11 +39,11 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "SSTudo" },
-      { property: "og:title", content: "SSTudo — Conformidade NR-01 | PGR e Burnout sem Planilhas" },
+      { property: "og:title", content: "SSTudo — Soluções em SST: PGR, ASO, Denúncias e Riscos Psicossociais" },
       {
         property: "og:description",
         content:
-          "Adeque sua empresa à NR-01. Pesquisa anônima de burnout, heatmap de riscos e relatório PDF para o PGR. Rápido, seguro e sem planilhas.",
+          "A SSTudo reúne quatro soluções para conformidade em Segurança e Saúde no Trabalho: Diagnóstico PGR, Denúncia Proativa, ASO Digital e PsicoHub. Fale com um especialista.",
       },
       { property: "og:url", content: "https://sstudo.com.br/" },
       { property: "og:image", content: OG_IMAGE_URL },
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/")({
               name: "SSTudo",
               url: "https://sstudo.com.br",
               description:
-                "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
+                "Ecossistema de tecnologia para conformidade em Segurança e Saúde no Trabalho, com quatro produtos integrados.",
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "sstudo.oficial@gmail.com",
