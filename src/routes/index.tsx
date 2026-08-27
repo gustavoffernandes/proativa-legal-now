@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/sections/Hero";
 import { Products } from "@/sections/Products";
+import { WhySSTudo } from "@/sections/WhySSTudo";
 import { Solution } from "@/sections/Solution";
 import { Testimonials } from "@/sections/Testimonials";
 import { FAQ } from "@/sections/FAQ";
