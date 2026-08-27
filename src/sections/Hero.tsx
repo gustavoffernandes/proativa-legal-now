@@ -29,23 +29,22 @@ export function Hero() {
                 color: "#93c5fd",
               }}
             >
-              ⚡ NR-01 em vigor — adequação obrigatória agora
+              Conformidade em SST, em um só lugar
             </div>
 
             <h1 className="mt-6 max-w-xl font-display text-4xl md:text-5xl font-bold leading-[1.1] text-white">
-              Sua empresa está{" "}
-              <span style={{ color: "#60a5fa" }}>protegida</span> contra as
-              novas exigências da NR-01?
+              Soluções completas para sua empresa estar em{" "}
+              <span style={{ color: "#60a5fa" }}>conformidade</span> com as
+              normas de Segurança e Saúde no Trabalho
             </h1>
 
             <p
               className="mt-5 max-w-lg text-base leading-relaxed"
               style={{ color: "#94a3b8" }}
             >
-              Desde maio de 2026, o mapeamento de riscos psicossociais é
-              obrigatório no PGR. O SSTudo digitaliza todo o processo —
-              pesquisa, análise, heatmap e relatório PDF — sem planilha, sem
-              improviso.
+              PGR, ASO, canal de denúncias e análise de riscos psicossociais —
+              a SSTudo reúne as ferramentas que sua empresa precisa para
+              atender às NRs sem complicação.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
@@ -55,19 +54,13 @@ export function Hero() {
                 className="rounded-lg font-semibold px-6 py-6 text-white hover:opacity-90"
                 style={{ backgroundColor: "#2563eb" }}
               >
-                <a href="#precos">Adequar minha empresa agora</a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-lg bg-transparent hover:bg-white/5"
-                style={{
-                  borderColor: "rgba(255,255,255,0.2)",
-                  color: "#94a3b8",
-                }}
-              >
-                <a href="#precos">Ver planos e preços →</a>
+                <a
+                  href="https://wa.me/559391009999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Falar com um especialista
+                </a>
               </Button>
             </div>
 
@@ -85,7 +78,7 @@ export function Hero() {
           <div className="hidden lg:flex justify-center lg:justify-end">
             <img
               src={heroLaptop.url}
-              alt="Dashboard do SSTudo com heatmap de riscos psicossociais para conformidade NR-01"
+              alt="Painel de gestão SST da SSTudo"
               width={580}
               height={431}
               fetchPriority="high"
