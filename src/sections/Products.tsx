@@ -5,7 +5,7 @@ const PRODUCTS = [
     icon: ShieldAlert,
     title: "Denúncia Proativa",
     description:
-      "Canal de denúncias anônimas para sua empresa, com total conformidade à LGPD. Fortaleça a cultura de ética e compliance na organização.",
+      "Um canal de denúncias anônimas e independente para sua empresa, com total conformidade à LGPD. Colaboradores, fornecedores e clientes podem reportar irregularidades com segurança, enquanto sua empresa recebe relatórios organizados para investigação e tomada de decisão — fortalecendo a cultura de ética e reduzindo riscos reputacionais.",
     button: "Conhecer o produto",
     href: "https://denunciaproativa.com.br",
   },
@@ -13,7 +13,7 @@ const PRODUCTS = [
     icon: ClipboardCheck,
     title: "ASO Digital",
     description:
-      "Gestão completa de Atestados de Saúde Ocupacional e PCMSO, com integração direta a clínicas parceiras. Menos papel, mais controle.",
+      "Centralize a gestão de Atestados de Saúde Ocupacional e do PCMSO em um só lugar, com integração direta a clínicas parceiras para agendamento e emissão de exames. Acompanhe prazos de vencimento, histórico de colaboradores e documentação sempre organizada — sem depender de papel ou planilhas soltas.",
     button: "Conhecer o produto",
     href: "https://asodigital.net",
   },
@@ -21,7 +21,7 @@ const PRODUCTS = [
     icon: Brain,
     title: "PsicoHub",
     description:
-      "Plataforma de análise de riscos psicossociais com pesquisa anônima, heatmap automático e relatórios técnicos prontos para o PGR.",
+      "Mapeie os riscos psicossociais da sua empresa com pesquisas 100% anônimas, heatmap automático por setor e relatórios técnicos prontos para anexar ao PGR. A ferramenta ideal para atender às exigências da NR-01 sobre saúde mental no trabalho, sem complexidade técnica.",
     button: "Falar sobre o PsicoHub",
     href: "https://wa.me/559391009999",
   },
@@ -91,7 +91,7 @@ export function Products() {
                 Diagnóstico PGR
               </h4>
               <p className="mt-1 text-sm" style={{ color: "#475569" }}>
-                Ferramenta gratuita para identificar rapidamente se sua empresa precisa de um PGR e quais documentos faltam.
+                Não sabe se sua empresa já tem toda a documentação exigida? Em poucos minutos, essa ferramenta gratuita identifica se você precisa de um PGR e aponta exatamente quais documentos ainda estão faltando para a conformidade.
               </p>
             </div>
             <a

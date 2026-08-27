@@ -31,10 +31,13 @@ export function Solution() {
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-display text-3xl sm:text-4xl text-slate-900 text-balance">
-              Tudo que o PGR exige para conformidade com a NR-01
+              Como funciona o PsicoHub
             </h2>
             <p className="mt-4 text-slate-500 text-pretty">
-              Do envio da pesquisa ao relatório final para o PGR — sem planilha, sem consultoria cara
+              Da pesquisa anônima ao relatório final para o PGR, em quatro etapas simples
+            </p>
+            <p className="mt-4 text-sm text-slate-500 text-pretty">
+              O PsicoHub é a solução da SSTudo dedicada à análise de riscos psicossociais, exigida pela atualização da NR-01.
             </p>
           </div>
         </FadeInView>

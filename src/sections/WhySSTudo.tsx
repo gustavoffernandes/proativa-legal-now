@@ -5,25 +5,25 @@ const ITEMS = [
     icon: ShieldCheck,
     title: "Segurança",
     description:
-      "A proteção do trabalhador é inegociável. Cumprimos rigorosamente todas as normas vigentes.",
+      "A proteção do trabalhador é inegociável para nós. Cumprimos rigorosamente todas as normas vigentes e atualizamos nossas plataformas sempre que a legislação muda, para que sua empresa nunca fique desatualizada.",
   },
   {
     icon: Unlock,
     title: "Acessibilidade",
     description:
-      "Tecnologia simples de usar, com linguagem clara e suporte humano próximo — não apenas automatizado.",
+      "Construímos tecnologia simples de usar, mesmo para quem não é especialista em SST. Linguagem clara, sem jargões desnecessários, e suporte humano de verdade quando você precisar de ajuda — não apenas robôs automatizados.",
   },
   {
     icon: CheckCircle,
     title: "Integridade",
     description:
-      "Não vendemos atalhos. Educamos nossos clientes sobre suas obrigações reais perante a lei.",
+      "Não vendemos atalhos nem soluções que burlam a legislação. Nosso compromisso é educar nossos clientes sobre suas obrigações reais, para que a conformidade seja genuína — não apenas documental.",
   },
   {
     icon: Handshake,
     title: "Parceria",
     description:
-      "Não somos apenas fornecedores — acompanhamos sua empresa em toda a jornada de conformidade em SST.",
+      "Não somos apenas fornecedores de software — somos parceiros de conformidade. Acompanhamos sua empresa em toda a jornada de SST, desde o diagnóstico inicial até a manutenção contínua da documentação exigida por lei.",
   },
 ];
 
