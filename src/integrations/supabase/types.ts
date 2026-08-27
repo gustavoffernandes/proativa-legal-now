@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.5"
+    PostgrestVersion: "14.17"
   }
   public: {
     Tables: {
@@ -232,6 +232,7 @@ export type Database = {
           is_anonymous: boolean | null
           last_sync_at: string | null
           link_token: string | null
+          methodology: string
           owner_admin_id: string | null
           require_consent: boolean | null
           require_password: boolean | null
@@ -266,6 +267,7 @@ export type Database = {
           is_anonymous?: boolean | null
           last_sync_at?: string | null
           link_token?: string | null
+          methodology?: string
           owner_admin_id?: string | null
           require_consent?: boolean | null
           require_password?: boolean | null
@@ -300,6 +302,7 @@ export type Database = {
           is_anonymous?: boolean | null
           last_sync_at?: string | null
           link_token?: string | null
+          methodology?: string
           owner_admin_id?: string | null
           require_consent?: boolean | null
           require_password?: boolean | null
@@ -704,6 +707,7 @@ export type Database = {
           instructions: string | null
           is_active: boolean | null
           is_anonymous: boolean | null
+          methodology: string | null
           require_consent: boolean | null
           require_password: boolean | null
           sector: string | null
@@ -722,6 +726,7 @@ export type Database = {
           instructions?: string | null
           is_active?: boolean | null
           is_anonymous?: boolean | null
+          methodology?: string | null
           require_consent?: boolean | null
           require_password?: boolean | null
           sector?: string | null
@@ -740,6 +745,7 @@ export type Database = {
           instructions?: string | null
           is_active?: boolean | null
           is_anonymous?: boolean | null
+          methodology?: string | null
           require_consent?: boolean | null
           require_password?: boolean | null
           sector?: string | null
