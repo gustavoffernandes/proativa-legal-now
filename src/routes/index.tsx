@@ -8,6 +8,7 @@ import { WhySSTudo } from "@/sections/WhySSTudo";
 import { Solution } from "@/sections/Solution";
 import { Testimonials } from "@/sections/Testimonials";
 import { FAQ } from "@/sections/FAQ";
+import { FinalCTA } from "@/sections/FinalCTA";
 import { Contact } from "@/sections/Contact";
 import ogImageAsset from "@/assets/og-image-sstudo.png.asset.json";
 
