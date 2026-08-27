@@ -42,7 +42,7 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
                 <li><a href="mailto:contato@sstudo.com.br" className="hover:text-primary-foreground">contato@sstudo.com.br</a></li>
                 <li>
-                  <a href="https://wa.me/559399174798" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground">
+                  <a href="https://wa.me/5593991747798" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground">
                     WhatsApp: (93) 99174-7798
                   </a>
                 </li>
