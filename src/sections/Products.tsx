@@ -23,7 +23,7 @@ const PRODUCTS = [
     description:
       "Mapeie os riscos psicossociais da sua empresa com pesquisas 100% anônimas, heatmap automático por setor e relatórios técnicos prontos para anexar ao PGR. A ferramenta ideal para atender às exigências da NR-01 sobre saúde mental no trabalho, sem complexidade técnica.",
     button: "Falar sobre o PsicoHub",
-    href: "https://wa.me/559399174798",
+    href: "https://wa.me/5593991747798",
   },
 ];
 
