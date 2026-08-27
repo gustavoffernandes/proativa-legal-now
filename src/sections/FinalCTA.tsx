@@ -9,7 +9,7 @@ export function FinalCTA() {
           Fale agora com nossa equipe pelo WhatsApp e descubra qual produto SSTudo resolve o seu problema.
         </p>
         <a
-          href="https://wa.me/559399174798"
+          href="https://wa.me/5593991747798"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-8 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-semibold transition-opacity hover:opacity-90"
