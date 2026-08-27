@@ -1,15 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import {
-  Menu,
-  X,
-  LogOut,
-  User as UserIcon,
-  Package,
-  LogIn,
-  UserPlus,
-  ChevronDown,
-} from "lucide-react";
+import { Menu, X, LogOut, User as UserIcon, Package, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/integrations/supabase/auth-context";
@@ -25,10 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const links = [
-  { href: "#risco", label: "O Risco" },
   { href: "#solucao", label: "Solução" },
-  { href: "#como", label: "Como funciona" },
-  { href: "#precos", label: "Preços" },
   { href: "#contato", label: "Contato" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -75,10 +63,10 @@ export function Navbar() {
                     <a href={l.href}>{l.label}</a>
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Conta</DropdownMenuLabel>
-                {!loading && user ? (
+                {!loading && user && (
                   <>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuLabel>Conta</DropdownMenuLabel>
                     <DropdownMenuItem asChild>
                       <Link to="/pedidos">
                         <Package className="h-4 w-4" /> Meus pedidos
@@ -86,24 +74,6 @@ export function Navbar() {
                     </DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => signOut()}>
                       <LogOut className="h-4 w-4" /> Sair
-                    </DropdownMenuItem>
-                  </>
-                ) : (
-                  <>
-                    <DropdownMenuItem asChild>
-                      <Link to="/login">
-                        <LogIn className="h-4 w-4" /> Entrar
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/cadastro">
-                        <UserPlus className="h-4 w-4" /> Cadastrar
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/pedidos">
-                        <Package className="h-4 w-4" /> Pedidos
-                      </Link>
                     </DropdownMenuItem>
                   </>
                 )}
@@ -128,7 +98,7 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-2">
-            {!loading && user ? (
+            {!loading && user && (
               <>
                 <span className="hidden lg:inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                   <UserIcon className="h-3.5 w-3.5" />
@@ -142,18 +112,6 @@ export function Navbar() {
                 <Button size="sm" variant="ghost" onClick={() => signOut()} title="Sair">
                   <LogOut className="h-4 w-4" />
                   Sair
-                </Button>
-                <Button asChild size="sm" variant="default">
-                  <a href="#precos">Ver planos</a>
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button asChild size="sm" variant="ghost">
-                  <Link to="/login">Entrar</Link>
-                </Button>
-                <Button asChild size="sm" variant="default">
-                  <a href="#precos">Garantir 70% OFF</a>
                 </Button>
               </>
             )}
@@ -182,7 +140,7 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
-              {!loading && user ? (
+              {!loading && user && (
                 <>
                   <div className="px-2 py-2 text-xs text-muted-foreground border-t border-border mt-2">
                     {user.email}
@@ -201,34 +159,6 @@ export function Navbar() {
                     }}
                   >
                     <LogOut className="h-4 w-4" /> Sair
-                  </Button>
-                  <Button asChild className="mt-2 w-full">
-                    <a href="#precos" onClick={() => setOpen(false)}>
-                      Ver planos
-                    </a>
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button asChild variant="outline" className="mt-3 w-full">
-                    <Link to="/login" onClick={() => setOpen(false)}>
-                      Entrar
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="mt-2 w-full">
-                    <Link to="/cadastro" onClick={() => setOpen(false)}>
-                      Cadastrar
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="mt-2 w-full">
-                    <Link to="/pedidos" onClick={() => setOpen(false)}>
-                      <Package className="h-4 w-4" /> Pedidos
-                    </Link>
-                  </Button>
-                  <Button asChild className="mt-2 w-full">
-                    <a href="#precos" onClick={() => setOpen(false)}>
-                      Garantir 70% OFF
-                    </a>
                   </Button>
                 </>
               )}

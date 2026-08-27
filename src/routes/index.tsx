@@ -2,12 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/sections/Hero";
-import { Risk } from "@/sections/Risk";
 import { Solution } from "@/sections/Solution";
-import { HowItWorks } from "@/sections/HowItWorks";
 import { Testimonials } from "@/sections/Testimonials";
-import { FinalCTA } from "@/sections/FinalCTA";
-import { Pricing } from "@/sections/Pricing";
 import { FAQ } from "@/sections/FAQ";
 import { Contact } from "@/sections/Contact";
 import ogImageAsset from "@/assets/og-image-sstudo.png.asset.json";
@@ -99,19 +95,6 @@ export const Route = createFileRoute("/")({
                 availableLanguage: ["Portuguese"],
               },
             },
-            {
-              "@type": "SoftwareApplication",
-              name: "SSTudo",
-              applicationCategory: "BusinessApplication",
-              operatingSystem: "Web",
-              offers: {
-                "@type": "AggregateOffer",
-                priceCurrency: "BRL",
-                lowPrice: "20.97",
-                highPrice: "59.97",
-                offerCount: "3",
-              },
-            },
           ],
         }),
       },
@@ -142,7 +125,7 @@ export const Route = createFileRoute("/")({
               name: "O SSTudo serve para qualquer tamanho de empresa?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sim. O SSTudo atende desde pequenas empresas com um único CNPJ até consultorias SST que gerenciam dezenas de clientes simultaneamente. Os planos variam de 1 empresa (Starter) até 50 empresas (Empresarial).",
+                text: "Sim. O SSTudo atende desde pequenas empresas com um único CNPJ até consultorias SST que gerenciam dezenas de clientes simultaneamente.",
               },
             },
             {
@@ -161,22 +144,6 @@ export const Route = createFileRoute("/")({
                 text: "Após o encerramento da pesquisa, o relatório PDF completo é gerado em menos de 1 minuto. O documento já está no formato exigido para anexar ao PGR e apresentar em fiscalização da NR-01.",
               },
             },
-            {
-              "@type": "Question",
-              name: "O desconto de 70% no plano de lançamento é permanente?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Não. O desconto de 70% é válido apenas durante o período de lançamento. Quem assinar agora garante o preço promocional pelo período contratado. Após o lançamento, os valores retornam ao preço cheio.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Posso migrar de plano se minha consultoria crescer?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Sim. É possível fazer upgrade de plano a qualquer momento pelo painel de assinatura. O valor pago é proporcional ao período restante do plano atual.",
-              },
-            },
           ],
         }),
       },
@@ -190,12 +157,8 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
-        <Risk />
         <Solution />
-        <HowItWorks />
-        <Pricing />
         <Testimonials />
-        <FinalCTA />
         <FAQ />
         <Contact />
       </main>

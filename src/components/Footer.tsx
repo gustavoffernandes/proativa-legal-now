@@ -32,9 +32,8 @@ export function Footer() {
               <p className="text-xs uppercase tracking-widest text-primary-foreground">Produto</p>
               <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
                 <li><a href="#solucao" className="hover:text-primary-foreground">Recursos</a></li>
-                <li><a href="#como" className="hover:text-primary-foreground">Como funciona</a></li>
-                <li><a href="#precos" className="hover:text-primary-foreground">Planos</a></li>
                 <li><a href="#faq" className="hover:text-primary-foreground">FAQ</a></li>
+                <li><a href="#contato" className="hover:text-primary-foreground">Contato</a></li>
               </ul>
             </div>
 

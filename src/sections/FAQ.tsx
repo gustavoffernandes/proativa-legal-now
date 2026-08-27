@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "O SSTudo serve para qualquer tamanho de empresa?",
-    a: "Sim. O SSTudo atende desde pequenas empresas com um único CNPJ até consultorias SST que gerenciam dezenas de clientes simultaneamente. Os planos variam de 1 empresa (Starter) até 50 empresas (Empresarial).",
+    a: "Sim. O SSTudo atende desde pequenas empresas com um único CNPJ até consultorias SST que gerenciam dezenas de clientes simultaneamente.",
   },
   {
     q: "Como o SSTudo garante o anonimato dos respondentes?",
@@ -26,14 +26,6 @@ const faqs = [
   {
     q: "Quanto tempo leva para gerar o relatório do PGR?",
     a: "Após o encerramento da pesquisa, o relatório PDF completo é gerado em menos de 1 minuto. O documento já está no formato exigido para anexar ao PGR e apresentar em fiscalização da NR-01.",
-  },
-  {
-    q: "O desconto de 70% no plano de lançamento é permanente?",
-    a: "Não. O desconto de 70% é válido apenas durante o período de lançamento. Quem assinar agora garante o preço promocional pelo período contratado. Após o lançamento, os valores retornam ao preço cheio.",
-  },
-  {
-    q: "Posso migrar de plano se minha consultoria crescer?",
-    a: "Sim. É possível fazer upgrade de plano a qualquer momento pelo painel de assinatura. O valor pago é proporcional ao período restante do plano atual.",
   },
 ];
 
