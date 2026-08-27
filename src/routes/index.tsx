@@ -18,16 +18,16 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "SSTudo — Conformidade NR-01 | PGR Digital sem Planilhas" },
+      { title: "SSTudo — Soluções em SST: PGR, ASO, Denúncias e Riscos Psicossociais" },
       {
         name: "description",
         content:
-          "Adeque sua empresa à NR-01 agora. O SSTudo digitaliza o PGR com pesquisa anônima de burnout e riscos psicossociais — heatmap automático e relatório PDF em 1 clique. Experimente grátis.",
+          "A SSTudo reúne quatro soluções para conformidade em Segurança e Saúde no Trabalho: Diagnóstico PGR, Denúncia Proativa, ASO Digital e PsicoHub. Fale com um especialista.",
       },
       {
         name: "keywords",
         content:
-          "nr1, pgr, burnout, saúde e segurança no trabalho, nr 1, psicossocial, segurança no trabalho, software sst, sistema sst, burnout no trabalho, riscos psicossociais, conformidade nr-01, pgr psicossocial",
+          "sst, pgr, aso, canal de denúncias, riscos psicossociais, conformidade sst, segurança do trabalho, gestão de sst, nr1, burnout",
       },
       { name: "author", content: "SSTudo" },
       { name: "robots", content: "index, follow" },
