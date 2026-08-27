@@ -160,6 +160,7 @@ function Index() {
       <main>
         <Hero />
         <Products />
+        <WhySSTudo />
         <Solution />
         <Testimonials />
         <FAQ />
