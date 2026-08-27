@@ -158,6 +158,7 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
+        <Products />
         <Solution />
         <Testimonials />
         <FAQ />
