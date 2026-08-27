@@ -2,7 +2,7 @@ import { FadeInView, FadeInStagger, FadeInItem } from "@/components/FadeInView";
 
 const testimonials = [
   {
-    text: "Antes a gente tabulava tudo no Excel — levava três dias. Com o SSTudo, o relatório sai em minutos e já está no formato certo para o PGR. Economizamos muito tempo de consultoria.",
+    text: "A SSTudo simplificou nossa gestão de SST. O que levava dias em planilhas separadas, hoje resolvemos em uma única plataforma.",
     name: "Mariana Costa",
     role: "Técnica em SST · Consultoria em BH/MG",
     initials: "MC",
@@ -10,7 +10,7 @@ const testimonials = [
     color: "#2563eb",
   },
   {
-    text: "Atendo mais de 15 empresas e precisava de algo escalável. O painel multiempresa do SSTudo resolveu isso — consigo visualizar os riscos de cada cliente em segundos.",
+    text: "Uso o PsicoHub e o ASO Digital para meus mais de 15 clientes. Ter tudo integrado facilitou muito minha rotina como consultor.",
     name: "Ricardo Almeida",
     role: "Engenheiro de Segurança · Campo Grande/MS",
     initials: "RA",
@@ -18,7 +18,7 @@ const testimonials = [
     color: "#16a34a",
   },
   {
-    text: "A fiscalização veio antes do que esperávamos. Graças ao SSTudo, o PGR já estava completo com os riscos psicossociais devidamente documentados. Passamos sem nenhuma autuação.",
+    text: "O canal de Denúncia Proativa trouxe mais confiança para nossos colaboradores reportarem problemas. A implementação foi rápida e simples.",
     name: "Fernanda Oliveira",
     role: "Coordenadora de RH · Indústria de alimentos/SP",
     initials: "FO",
@@ -26,7 +26,7 @@ const testimonials = [
     color: "#7c3aed",
   },
   {
-    text: "O heatmap visual é o que mais impressiona os clientes. Eles entendem imediatamente quais setores precisam de ação — sem precisar explicar planilha nenhuma.",
+    text: "Recomendo a SSTudo para qualquer empresa que queira profissionalizar a gestão de SST sem contratar uma estrutura interna cara.",
     name: "Carlos Mendes",
     role: "Consultor SST · Porto Alegre/RS",
     initials: "CM",
