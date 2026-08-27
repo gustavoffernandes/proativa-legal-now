@@ -174,9 +174,11 @@ function Index() {
         <Solution />
         <Testimonials />
         <FAQ />
+        <FinalCTA />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
