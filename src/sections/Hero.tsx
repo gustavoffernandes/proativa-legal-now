@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import heroLaptop from "@/assets/hero-laptop-v2.webp.asset.json";
 
 export function Hero() {
