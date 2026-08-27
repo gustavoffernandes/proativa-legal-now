@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Hero } from "@/sections/Hero";
 import { Products } from "@/sections/Products";
 import { WhySSTudo } from "@/sections/WhySSTudo";
 import { Solution } from "@/sections/Solution";
 import { Testimonials } from "@/sections/Testimonials";
 import { FAQ } from "@/sections/FAQ";
+import { FinalCTA } from "@/sections/FinalCTA";
 import { Contact } from "@/sections/Contact";
 import ogImageAsset from "@/assets/og-image-sstudo.png.asset.json";
 
@@ -172,9 +174,11 @@ function Index() {
         <Solution />
         <Testimonials />
         <FAQ />
+        <FinalCTA />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }

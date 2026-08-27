@@ -16,7 +16,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-sm text-primary-foreground/75">
-                Plataforma para gestão de riscos psicossociais e conformidade com a NR-01. PGR digital, pesquisa de burnout anônima e relatório PDF para auditoria.
+                SSTudo — Ecossistema de tecnologia para conformidade em Segurança e Saúde no Trabalho. PGR, ASO, canal de denúncias e análise de riscos psicossociais.
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-2.5 py-1 text-[11px] text-primary-foreground/80">
@@ -41,6 +41,11 @@ export function Footer() {
               <p className="text-xs uppercase tracking-widest text-primary-foreground">Contato</p>
               <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
                 <li><a href="mailto:contato@sstudo.com.br" className="hover:text-primary-foreground">contato@sstudo.com.br</a></li>
+                <li>
+                  <a href="https://wa.me/559391009999" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground">
+                    📞 WhatsApp: (93) 9100-9999
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
