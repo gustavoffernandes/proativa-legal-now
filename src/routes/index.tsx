@@ -90,7 +90,7 @@ export const Route = createFileRoute("/")({
               name: "SSTudo",
               url: "https://sstudo.com.br",
               description:
-                "Plataforma de Gestão de Riscos Psicossociais para conformidade com a NR-01.",
+                "Ecossistema de tecnologia para conformidade em Segurança e Saúde no Trabalho, com quatro produtos integrados.",
               contactPoint: {
                 "@type": "ContactPoint",
                 email: "sstudo.oficial@gmail.com",
