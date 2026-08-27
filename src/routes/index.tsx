@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Hero } from "@/sections/Hero";
 import { Products } from "@/sections/Products";
 import { WhySSTudo } from "@/sections/WhySSTudo";
