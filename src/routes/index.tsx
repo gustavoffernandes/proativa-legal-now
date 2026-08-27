@@ -39,11 +39,11 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "SSTudo" },
-      { property: "og:title", content: "SSTudo — Conformidade NR-01 | PGR e Burnout sem Planilhas" },
+      { property: "og:title", content: "SSTudo — Soluções em SST: PGR, ASO, Denúncias e Riscos Psicossociais" },
       {
         property: "og:description",
         content:
-          "Adeque sua empresa à NR-01. Pesquisa anônima de burnout, heatmap de riscos e relatório PDF para o PGR. Rápido, seguro e sem planilhas.",
+          "A SSTudo reúne quatro soluções para conformidade em Segurança e Saúde no Trabalho: Diagnóstico PGR, Denúncia Proativa, ASO Digital e PsicoHub. Fale com um especialista.",
       },
       { property: "og:url", content: "https://sstudo.com.br/" },
       { property: "og:image", content: OG_IMAGE_URL },
