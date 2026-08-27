@@ -16,7 +16,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="mt-4 max-w-sm text-sm text-primary-foreground/75">
-                Plataforma para gestão de riscos psicossociais e conformidade com a NR-01. PGR digital, pesquisa de burnout anônima e relatório PDF para auditoria.
+                SSTudo — Ecossistema de tecnologia para conformidade em Segurança e Saúde no Trabalho. PGR, ASO, canal de denúncias e análise de riscos psicossociais.
               </p>
               <div className="mt-5 flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-2.5 py-1 text-[11px] text-primary-foreground/80">
