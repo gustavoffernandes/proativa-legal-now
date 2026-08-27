@@ -51,7 +51,7 @@ export function Hero() {
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <a
-                href="https://wa.me/559399174798"
+                href="https://wa.me/5593991747798"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center justify-center rounded-lg px-6 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
