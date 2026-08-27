@@ -142,14 +142,6 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "Question",
-              name: "Os produtos são integrados entre si?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Estamos trabalhando na integração completa entre os quatro produtos, com login único e dashboard unificado.",
-              },
-            },
-            {
-              "@type": "Question",
               name: "A SSTudo oferece suporte técnico?",
               acceptedAnswer: {
                 "@type": "Answer",

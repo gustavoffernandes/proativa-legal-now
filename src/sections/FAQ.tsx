@@ -24,10 +24,6 @@ const faqs = [
     a: "Basta clicar no botão de WhatsApp em qualquer parte do site ou acessar diretamente o site do produto de interesse. Nossa equipe vai te orientar sobre o melhor plano para sua empresa.",
   },
   {
-    q: "Os produtos são integrados entre si?",
-    a: "Estamos trabalhando na integração completa entre os quatro produtos, com login único e dashboard unificado.",
-  },
-  {
     q: "A SSTudo oferece suporte técnico?",
     a: "Sim, oferecemos suporte via WhatsApp, e-mail e chat para todos os clientes.",
   },
